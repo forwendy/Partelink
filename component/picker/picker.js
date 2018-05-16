@@ -15,7 +15,7 @@ Vue.component('picker', {
     </transition></div>',
     data: function() {
         return {
-            text: '',
+            text: '请选择',
             value: ''
         };
     },

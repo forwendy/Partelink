@@ -20,8 +20,8 @@
 		<link rel="stylesheet" href="../../css/apply.css">
 		<link rel="stylesheet" href="../../component/picker/picker.css">
         <link rel="stylesheet" href="../../component/uploadpic/uploadpic.css">
-        <script src="//cdn.bootcss.com/eruda/1.4.2/eruda.min.js"></script>
-        <script>eruda.init();</script>
+        <!-- <script src="//cdn.bootcss.com/eruda/1.4.2/eruda.min.js"></script>
+        <script>eruda.init();</script> -->
         <style>
         body{
             background: #f4f4f4;
@@ -53,6 +53,13 @@
         }
         .subtitle{
             margin-left: 0.3rem;
+        }
+        .input-text{
+            margin-right: 0.1rem;
+            color: #c2c2c2;
+        }
+        .input-text.active{
+            color: #333;
         }
         </style>
 	</head>
@@ -87,8 +94,9 @@
                         <label class="label-must fl">企业性质</label>
                         <input type="hidden" v-model="stepOne.companyType">
                         <i class="ico-select fr"></i>
-                        <input class="fr" type="text" v-model="companyTypeText" placeholder="请选择"
-                        v-on:click.stop.prevent="companyTypePicker = true" readonly>
+                        <div class="fr input-text" :class="{active: companyTypeText != '请选择'}" v-on:click="companyTypePicker = true" >
+                            {{companyTypeText}}
+                        </div>
                     </div>
                     <div class="form-group fix">
                         <label class="label-must fl">纳税号</label>
@@ -98,8 +106,9 @@
                         <label class="label-must fl">注册资本币种</label>
                         <input type="hidden" v-model="stepOne.currencyType">
                         <i class="ico-select fr"></i>
-                        <input class="fr" v-model="currencyTypeText" type="text" placeholder="请选择"
-                         v-on:click.stop.prevent="currencyTypePicker = true" readonly>
+                        <div class="fr input-text" :class="{active: currencyTypeText != '请选择'}" v-on:click="currencyTypePicker = true">
+                            {{currencyTypeText}}
+                        </div>
                     </div>
                     <div class="form-group fix">
                         <label class="label-must fl">注册资本（万元）</label>
@@ -224,7 +233,7 @@
 					},
 
                     companyTypePicker: false,
-                    companyTypeText: '',
+                    companyTypeText: '请选择',
                     companyTypeArr: [{
                         value: 0,
                         text: '国有企业'
@@ -240,7 +249,7 @@
                     }],
 
                     currencyTypePicker: false,
-                    currencyTypeText: '',
+                    currencyTypeText: '请选择',
                     currencyTypeArr: [{
                         value: 0,
                         text: '人民币'
