@@ -126,8 +126,10 @@
                     </div>
                     <div class="form-group form-select fix" style="border: none;">
                         <label class="label-must fl">成立时间</label>
+                        <div class="fr" v-on:click.stop="datePicker" >
                         <i class="ico-select fr"></i>
-                        <input class="fr" v-model="stepOne.formed" type="text" placeholder="请输入" readonly v-on:click="datePicker">
+                        <input v-model="stepOne.formed" type="text" placeholder="请选择" readonly>
+                        </div>
                     </div>
 
 
