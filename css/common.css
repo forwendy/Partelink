@@ -170,7 +170,7 @@ a {
 }
 
 .form-group label{
-	line-height: 1;
+	line-height: 0.36rem;
     padding: 0.16rem 0;
 }
 .form-group{
