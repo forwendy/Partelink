@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no, minimal-ui">
+		<!--iphone-->
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<meta name="format-detection" content="telephone=no, email=no">
+		<!--iphone-->
+		<title>申请服务</title>
+		<script>
+		var deviceWidth = document.documentElement.clientWidth;
+		if(deviceWidth > 750) deviceWidth = 750;
+		document.documentElement.style.fontSize = deviceWidth / 7.5 + 'px';
+		</script>
+        <link rel="stylesheet" href="https://res.wx.qq.com/open/libs/weui/1.1.2/weui.min.css">
+		<link rel="stylesheet" href="../../css/icon.css">
+		<link rel="stylesheet" href="../../css/common.css">
+		<link rel="stylesheet" href="../../css/apply.css">
+		<link rel="stylesheet" href="../../component/picker/picker.css">
+        <link rel="stylesheet" href="../../component/uploadpic/uploadpic.css">
+        <style>
+        body{
+            background: #f4f4f4;
+        }
+        .form-group{
+            margin: 0;
+            padding: 0.3rem;
+            background: #fff;
+        }
+        .form-group label{
+            padding: 0;
+            font-size: 13px;
+        }
+        .form-group input{
+            width: auto;
+            text-align: right;
+            font-size: 13px;
+        }
+        .fixed-bottom{
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 0.3rem;
+            background: #fff;
+        }
+        .form-select i.ico-select{
+            margin: 0.05rem 0;
+        }
+        .subtitle{
+            margin-left: 0.3rem;
+        }
+        </style>
+	</head>
+	<body>
+		<div class="navigation">
+			<a class="ico-back fl" onclick="history.go(-1);"></a>
+			<h1>申请服务</h1>
+		</div>
+		<div class="page-content" id="app" v-cloak>
+            <div class="step-process">
+                <div :class="{active: step == 0, done: step > 0}">
+                    <i>1</i>
+                    <span>完善资料</span>
+                </div>
+                <div :class="{active: step == 1, done: step > 1}">
+                    <i>2</i>
+                    <span>上传文件</span>
+                </div>
+                <div :class="{active: step == 2, done: step > 2}">
+                    <i>3</i>
+                    <span>完成申请</span>
+                </div>
+            </div>
+            <div class="step-content step-one" v-show="step == 0">
+                <h3 class="subtitle">企业信息</h3>
+                <div class="form" style="margin-bottom: 1.6rem;">
+                    <div class="form-group fix">
+                        <label class="label-must fl">公司名称</label>
+                        <input class="fr" v-model="stepOne.companyName" type="text" placeholder="请输入">
+                    </div>
+                    <div class="form-group form-select fix">
+                        <label class="label-must fl">企业性质</label>
+                        <input type="hidden" v-model="stepOne.companyType">
+                        <i class="ico-select fr"></i>
+                        <input class="fr" type="text" v-model="companyTypeText" placeholder="请选择" v-on:click="companyTypePicker = true" readonly>
+                    </div>
+                    <div class="form-group fix">
+                        <label class="label-must fl">纳税号</label>
+                        <input class="fr" v-model="stepOne.taxpayerId" type="number" placeholder="请输入">
+                    </div>
+                    <div class="form-group form-select fix">
+                        <label class="label-must fl">注册资本币种</label>
+                        <input type="hidden" v-model="stepOne.currencyType">
+                        <i class="ico-select fr"></i>
+                        <input class="fr" v-model="currencyTypeText" type="text" placeholder="请选择" v-on:click="currencyTypePicker = true" readonly>
+                    </div>
+                    <div class="form-group fix">
+                        <label class="label-must fl">注册资本（万元）</label>
+                        <input class="fr" v-model="stepOne.capital" type="number" placeholder="请输入">
+                    </div>
+                    <div class="form-group fix">
+                        <label class="label-must fl">法人代表</label>
+                        <input class="fr" v-model="stepOne.legalPerson" type="text" placeholder="请输入">
+                    </div>
+                    <div class="form-group fix">
+                        <label class="label-must fl">注册地区</label>
+                        <input class="fr" v-model="stepOne.registeredAddress" type="text" placeholder="请输入">
+                    </div>
+                    <div class="form-group form-select fix" style="border: none;">
+                        <label class="label-must fl">成立时间</label>
+                        <i class="ico-select fr"></i>
+                        <input class="fr" v-model="stepOne.formed" type="text" placeholder="请输入" readonly v-on:click="datePicker">
+                    </div>
+
+
+                    <div class="form-group fix" style="margin-top: 0.2rem;border: none;">
+                        <label class="label-must fl">主要产品</label>
+                        <textarea style="width: 100%;" v-model="stepOne.product" rows="4" placeholder="请输入产品名称"></textarea>
+                    </div>
+
+                    <h3 class="subtitle">联系信息</h3>
+
+                    <div class="form-group fix">
+                        <label class="label-must fl">联系地址</label>
+                        <input class="fr" v-model="stepOne.address" type="text" placeholder="请输入">
+                    </div>
+                    <div class="form-group fix">
+                        <label class="label-must fl">联系人</label>
+                        <input class="fr" v-model="stepOne.contacts" type="text" placeholder="请输入">
+                    </div>
+                    <div class="form-group fix">
+                        <label class="label-must fl">手机号码</label>
+                        <input class="fr" v-model="stepOne.tel" type="number" placeholder="请输入">
+                    </div>
+                    <div class="form-group fix" style="border: none;">
+                        <label class="label-must fl">邮箱</label>
+                        <input class="fr" v-model="stepOne.email" type="text" placeholder="请输入">
+                    </div>
+                </div>
+
+                <div class="fixed-bottom">
+                    <a class="btn" :class="{disabled: !isFinishedOne}" v-on:click="toStepTwo">下一步</a>
+                </div>
+            </div>
+            <div class="step-content step-two" v-show="step == 1">
+				<div class="form" style="margin-bottom: 1.6rem;">
+					<div class="form-group fix" style="border: none; margin: 0.2rem 0;">
+						<label class="label-must fl">选择营业执照类型</label>
+						<br>
+						<input class="input-hide" type="radio" id="licenseType1" value="1" v-model="stepTwo.licenseType" >
+						<label for="licenseType1" class="btn-outline">多证合一</label>
+						<input class="input-hide" type="radio" id="licenseType2" value="2" v-model="stepTwo.licenseType" >
+						<label for="licenseType2" class="btn-outline">非多证合一</label>
+					</div>
+
+					<div class="form-group form-upload-pic fix" style="border: none; margin: 0.2rem 0;">
+						<label class="label-must">上传营业执照</label><br>
+                        <upload-pic name="licensePic0" v-on:success=""></upload-pic>
+					</div>
+
+					<div class="form-group form-upload-pic fix" style="border: none; margin: 0.2rem 0;">
+						<label class="label-must">上传IATF16949、环境体系认证证书</label><br>
+                        <upload-pic name="licensePic1" v-on:success=""></upload-pic>
+                        <upload-pic name="licensePic2" v-on:success=""></upload-pic>
+					</div>
+
+					<div class="form-group form-upload-pic fix" style="border: none; margin: 0.2rem 0;">
+						<label class="label-must">上传职业健康安全管理体系认证证书</label><br>
+                        <upload-pic name="licensePic3" v-on:success=""></upload-pic>
+					</div>
+				</div>
+				<div class="fixed-bottom">
+					<a class="btn" :class="{disabled: !isFinishedOne}" v-on:click="submit">下一步</a>
+				</div>
+			</div>
+            <div class="step-content step-success" v-show="step == 2">
+				<i class="ico-success"></i>
+				<h2>注册成功！</h2>
+				<p>恭喜你成功注册成为亿领平台的供应商</p>
+				<a class="btn" href="../index.html">返回Partelink亿领公众号</a>
+			</div>
+
+        <!-- 选择企业类型 -->
+        <picker :show="companyTypePicker" :list="companyTypeArr" v-on:close="companyTypePicker = false" v-on:change="changeCompanyType"></picker>
+        <!-- 选择注册资本币种 -->
+        <picker :show="currencyTypePicker" :list="currencyTypeArr" v-on:close="currencyTypePicker = false" v-on:change="changeCurrencyType"></picker>
+
+		</div>
+        <script src="../../js/vue.js"></script>
+        <script src="../../js/vue.touch.js"></script>
+        <script src="../../component/picker/picker.js"></script>
+        <script src="../../component/uploadpic/uploadpic.js"></script>
+        <script src="https://res.wx.qq.com/open/libs/weuijs/1.1.3/weui.min.js"></script>
+        <script>
+            var vapp = new Vue({
+                el: '#app',
+                data: {
+                    step: 0, // 步骤 0 1 2
+                    stepOne: {
+                        companyName: '',
+                        companyType: '',
+                        taxpayerId: '',
+                        currencyType: '',
+                        capital: '',
+                        legalPerson: '',
+                        registeredAddress: '',
+                        formed: '',
+                        product: '',
+                        address: '',
+                        contacts: '',
+                        tel: '',
+                        email: ''
+                    },
+
+					stepTwo: {
+						licenseType: 1,
+					},
+
+                    companyTypePicker: false,
+                    companyTypeText: '',
+                    companyTypeArr: [{
+                        value: 0,
+                        text: '国有企业'
+                    },{
+                        value: 1,
+                        text: '民营企业'
+                    },{
+                        value: 2,
+                        text: '外资企业'
+                    },{
+                        value: 3,
+                        text: '其他'
+                    }],
+
+                    currencyTypePicker: false,
+                    currencyTypeText: '',
+                    currencyTypeArr: [{
+                        value: 0,
+                        text: '人民币'
+                    },{
+                        value: 1,
+                        text: '港币'
+                    },{
+                        value: 2,
+                        text: '美元'
+                    },{
+                        value: 3,
+                        text: '英镑'
+                    }]
+                },
+                computed: {
+                    isFinishedOne: function () {
+                        return this.stepOne.companyName != ''
+                        && this.stepOne.companyType != ''
+                        && this.stepOne.taxpayerId != ''
+                        && this.stepOne.currencyType != ''
+                        && this.stepOne.capital != ''
+                        && this.stepOne.legalPerson != ''
+                        && this.stepOne.registeredAddress != ''
+                        && this.stepOne.formed != ''
+                        && this.stepOne.product != ''
+                        && this.stepOne.address != ''
+                        && this.stepOne.contacts != ''
+                        && this.stepOne.tel != ''
+                        && this.stepOne.email != '';
+                    }
+                },
+                methods: {
+					submit: function () {
+						if(this.isFinishedTwo){
+
+						}
+						this.step = 2;
+					},
+                    toStepTwo: function () {
+						if(this.isFinishedOne){
+
+						}
+						this.step = 1;
+                    },
+                    changeCompanyType: function (payload) {
+                        this.stepOne.companyType = payload[1];
+                        this.companyTypeText = payload[0];
+                    },
+                    changeCurrencyType: function (payload) {
+                        this.stepOne.currencyType = payload[1];
+                        this.currencyTypeText = payload[0];
+                    },
+                    datePicker: function (){
+                        var _this = this;
+                        weui.datePicker({
+                            start: 1990,
+                            end: 2000,
+                            defaultValue: [1991, 6, 9],
+                            className: 'my-datepicker',
+                            onChange: function(result){
+                                console.log(result)
+                            },
+                            onConfirm: function(result){
+                                var year = result[0].value;
+                                var month = result[1].value + '';
+                                var date = result[2].value + '';
+                                console.log(month)
+                                if(month.length == 1){
+                                    month = '0'+ month;
+                                }
+                                if(date.length == 1){
+                                    date = '0'+ date;
+                                }
+                                _this.stepOne.formed =  year + '-' +  month  + '-' + date;
+                            },
+                            id: 'datePicker'
+                        });
+                    }
+                }
+            });
+        </script>
+	</body>
+</html>

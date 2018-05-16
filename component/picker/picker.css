@@ -1,0 +1,46 @@
+.picker-slide-fade-enter-active {
+    transition: all .3s ease;
+}
+
+.picker-slide-fade-leave-active {
+    transition: all .5s cubic-bezier(1.0, 0.5, 0.8, 1.0);
+}
+
+.picker-slide-fade-enter, .picker-slide-fade-leave-to
+/* .slide-fade-leave-active for below version 2.1.8 */{
+    transform: translateY(50px);
+    opacity: 0;
+}
+
+.picker-modal{
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: #fff;
+}
+
+.picker-control{
+    display: -webkit-flex; /* Safari */
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 0 0.3rem 0 0.2rem;
+    border-bottom: 1px solid #d9d9d9;
+}
+.picker-control span{
+    display: block;
+    color: #666;
+    padding: 0.25rem 0.1rem 0.21rem;
+    border-bottom: 0.04rem solid #0657a5;
+}
+.picker-control a{
+    padding: 0.25rem 0;
+}
+.picker-content{
+    max-height: 3.75rem;
+    overflow-y: scroll;
+}
+.picker-content p{
+    margin: 0.4rem 0.3rem;
+}

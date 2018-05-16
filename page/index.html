@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no, minimal-ui">
+		<!--iphone-->
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<meta name="format-detection" content="telephone=no, email=no">
+		<!--iphone-->
+		<title>登录</title>
+		<script>
+		var deviceWidth = document.documentElement.clientWidth;
+		if(deviceWidth > 750) deviceWidth = 750;
+		document.documentElement.style.fontSize = deviceWidth / 7.5 + 'px';
+		</script>
+		<link rel="stylesheet" type="text/css" href="../css/common.css ">
+        <style>
+        body{
+            text-align: center;
+        }
+        ul{
+            margin: 0;
+            padding: 0;
+        }
+        ul li{
+            line-height: 0.88rem;
+            list-style-type: none;
+        }
+        a{
+            display: block;
+            font-size: 16px;
+            line-height: 0.88rem;
+            text-decoration: none;
+        }
+        </style>
+	</head>
+	<body>
+        <h1>功能入口</h1>
+        <ul>
+            <li><a href="login/login.html">登录</a></li>
+            <li><a href="apply/apply-service.html">单个服务申请</a></li>
+            <li><a href="apply/apply-service-together.html">多个服务申请</a></li>
+            <li><a href="enquiry/enquiry-list.html">询报价</a></li>
+            <li><a href="register/register.html">注册</a></li>
+        </ul>
+
+	</body>
+</html>

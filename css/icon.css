@@ -1,0 +1,191 @@
+.ico-back {
+    display: inline-block;
+    width: 0.22rem;
+    height: 0.42rem;
+    background: url(../imgs/ico_back@2x.png) no-repeat;
+    background-size: 0.22rem 0.42rem;
+}
+
+.ico-account {
+    display: inline-block;
+    width: 0.32rem;
+    height: 0.32rem;
+    background: url(../imgs/ico-account@2x.png) no-repeat;
+    background-size: 0.32rem;
+}
+
+.ico-password {
+    display: inline-block;
+    width: 0.32rem;
+    height: 0.32rem;
+    background: url(../imgs/ico-password@2x.png) no-repeat;
+    background-size: 0.32rem;
+}
+
+.ico-company {
+    display: inline-block;
+    width: 0.32rem;
+    height: 0.32rem;
+    background: url(../imgs/ico-company@2x.png) no-repeat;
+    background-size: 0.32rem;
+}
+
+.ico-del {
+    display: inline-block;
+    width: 0.25rem;
+    height: 0.25rem;
+    background: url(../imgs/ico-del@2x.png) no-repeat;
+    background-size: 0.25rem;
+}
+
+.ico-car {
+    display: inline-block;
+    width: 0.32rem;
+    height: 0.32rem;
+    background: url(../imgs/ico-car@2x.png) no-repeat;
+    background-size: 0.32rem;
+}
+
+.ico-date {
+    display: inline-block;
+    width: 0.32rem;
+    height: 0.32rem;
+    background: url(../imgs/ico-date@2x.png) no-repeat;
+    background-size: 0.32rem;
+}
+
+.ico-safety {
+    display: inline-block;
+    width: 0.32rem;
+    height: 0.32rem;
+    background: url(../imgs/ico-safety@2x.png) no-repeat;
+    background-size: 0.32rem;
+}
+.ico-code {
+    display: inline-block;
+    width: 0.32rem;
+    height: 0.32rem;
+    background: url(../imgs/ico-code@2x.png) no-repeat;
+    background-size: 0.32rem;
+}
+
+.ico-tel {
+    display: inline-block;
+    width: 0.32rem;
+    height: 0.32rem;
+    background: url(../imgs/ico-tel@2x.png) no-repeat;
+    background-size: 0.32rem;
+}
+
+.ico-email {
+    display: inline-block;
+    width: 0.32rem;
+    height: 0.32rem;
+    background: url(../imgs/ico-email@2x.png) no-repeat;
+    background-size: 0.32rem;
+}
+
+.ico-success {
+	display: inline-block;
+	width: 1.85rem;
+	height: 1.85rem;
+	background: url(../imgs/ico-success@2x.png) no-repeat;
+	background-size: 1.85rem;
+}
+
+.ico-arrow-right{
+    display: inline-block;
+    width: 0.13rem;
+    height: 0.23rem;
+    background: url(../imgs/ico-arrow-right@2x.png) no-repeat;
+    background-size: 0.13rem 0.23rem;
+}
+
+.ico-select{
+    display: inline-block;
+    width: 0.13rem;
+    height: 0.22rem;
+    background: url(../imgs/ico-select@2x.png) no-repeat;
+    background-size: 0.13rem 0.22rem;
+}
+
+/* 出口 */
+.ico-type-1{
+    display: inline-block;
+    width: 2.54rem;
+    height: 2.54rem;
+    background: url(../imgs/apply-type-1@2x.png) no-repeat;
+    background-size:  2.54rem;
+}
+/* 采集 */
+.ico-type-2{
+    display: inline-block;
+    width: 2.54rem;
+    height: 2.54rem;
+    background: url(../imgs/apply-type-2@2x.png) no-repeat;
+    background-size:  2.54rem;
+}
+/* 物流 */
+.ico-type-3{
+    display: inline-block;
+    width: 2.54rem;
+    height: 2.54rem;
+    background: url(../imgs/apply-type-3@2x.png) no-repeat;
+    background-size:  2.54rem;
+}
+/* 鑫融 */
+.ico-type-4{
+    display: inline-block;
+    width: 2.54rem;
+    height: 2.54rem;
+    background: url(../imgs/apply-type-4@2x.png) no-repeat;
+    background-size:  2.54rem;
+}
+/* 咨询 */
+.ico-type-5{
+    display: inline-block;
+    width: 2.54rem;
+    height: 2.54rem;
+    background: url(../imgs/apply-type-5@2x.png) no-repeat;
+    background-size:  2.54rem;
+}
+
+.ico-type-1-min{
+    display: inline-block;
+    width: 0.92rem;
+    height: 0.92rem;
+    background: url(../imgs/apply-type-1-min@2x.png) no-repeat;
+    background-size: 0.92rem;
+}
+
+.ico-type-2-min{
+    display: inline-block;
+    width: 0.92rem;
+    height: 0.92rem;
+    background: url(../imgs/apply-type-2-min@2x.png) no-repeat;
+    background-size: 0.92rem;
+}
+
+.ico-type-3-min{
+    display: inline-block;
+    width: 0.92rem;
+    height: 0.92rem;
+    background: url(../imgs/apply-type-3-min@2x.png) no-repeat;
+    background-size: 0.92rem;
+}
+
+.ico-type-4-min{
+    display: inline-block;
+    width: 0.92rem;
+    height: 0.92rem;
+    background: url(../imgs/apply-type-4-min@2x.png) no-repeat;
+    background-size: 0.92rem;
+}
+
+.ico-type-5-min{
+    display: inline-block;
+    width: 0.92rem;
+    height: 0.92rem;
+    background: url(../imgs/apply-type-5-min@2x.png) no-repeat;
+    background-size: 0.92rem;
+}
