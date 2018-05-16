@@ -87,7 +87,8 @@
                         <label class="label-must fl">企业性质</label>
                         <input type="hidden" v-model="stepOne.companyType">
                         <i class="ico-select fr"></i>
-                        <input class="fr" type="text" v-model="companyTypeText" placeholder="请选择" v-on:click="companyTypePicker = true" disabled>
+                        <input class="fr" type="text" v-model="companyTypeText" placeholder="请选择"
+                        v-on:click.stop.prevent="companyTypePicker = true" readonly>
                     </div>
                     <div class="form-group fix">
                         <label class="label-must fl">纳税号</label>
@@ -97,7 +98,8 @@
                         <label class="label-must fl">注册资本币种</label>
                         <input type="hidden" v-model="stepOne.currencyType">
                         <i class="ico-select fr"></i>
-                        <input class="fr" v-model="currencyTypeText" type="text" placeholder="请选择" v-on:click="currencyTypePicker = true" disabled>
+                        <input class="fr" v-model="currencyTypeText" type="text" placeholder="请选择"
+                         v-on:click.stop.prevent="currencyTypePicker = true" readonly>
                     </div>
                     <div class="form-group fix">
                         <label class="label-must fl">注册资本（万元）</label>
