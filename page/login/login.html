@@ -17,8 +17,8 @@
 		<link rel="stylesheet" href="https://res.wx.qq.com/open/libs/weui/1.1.2/weui.min.css">
 		<link rel="stylesheet" type="text/css" href="../../css/icon.css ">
 		<link rel="stylesheet" type="text/css" href="../../css/common.css ">
-		<script src="//cdn.bootcss.com/eruda/1.4.2/eruda.min.js"></script>
-       	 	<script>eruda.init();</script>
+		<!-- <script src="//cdn.bootcss.com/eruda/1.4.2/eruda.min.js"></script>
+       	 	<script>eruda.init();</script> -->
 		<style>
 		.page-content{
 			margin: 1.33rem 0.3rem 0;
@@ -74,23 +74,21 @@
                 	removeAll: function (e) {
                 		var target = e.currentTarget.getAttribute('data-target');
                 		this[target] = '';
-                    	this.passwordFocus = true;
+                    this.passwordFocus = true;
                 	},
-                    submit: function () {
-                        if(this.isFinished){
-							window.location.href = '../index.html';
-                        }
+                  submit: function () {
+                    if(this.isFinished){
+											window.location.href = '../index.html';
                     }
+                  }
                 },
                 directives: {
-    				focus: {
-      					update: function (el, {value}) {
-        					if (value) {
-          						el.focus()
-        					}
-      					}
-    				}
-  				}
+    							focus: {
+      							update: function (el) {
+        							el.focus();
+      						}
+    						}
+  						}
             });
         </script>
 	</body>
