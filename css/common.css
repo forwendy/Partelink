@@ -172,6 +172,7 @@ a {
 }
 
 .label-must{
+    display: inline-block;
     text-indent: 10px;
     position: relative;
 }
@@ -183,7 +184,7 @@ a {
     margin-right: 0.04rem;
     position: absolute;
     left: -10px;
-    top: 4px;
+    top: 0.07rem;
     bottom: 0;
 }
 
@@ -201,7 +202,7 @@ a {
 .form-group textarea {
     border: none;
     font-size: 14px;
-    width: 5.95rem;
+    width: 5rem;
     padding: 0.16rem 0;
 }
 

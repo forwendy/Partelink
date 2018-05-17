@@ -104,6 +104,9 @@ body {
 .form-group:last-child{
     border: none;
 }
+.label-must::before{
+    top: 0.35rem;
+}
 .form-group label{
     font-size: 12px;
     width: 1.4rem;
