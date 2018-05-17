@@ -125,7 +125,7 @@ a {
 }
 
 .fixed-bottom{
-    position: fixed;
+    position: absolute;
     bottom: 0;
     left: 0;
     right: 0;
@@ -134,7 +134,7 @@ a {
 }
 
 .navigation {
-    position: fixed;
+    position: absolute;
     z-index: 999;
     top: 0;
     left: 0;
