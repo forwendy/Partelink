@@ -52,6 +52,9 @@
             </div>
 			<a class="btn" :class="{disabled: !isFinished}" v-on:click="submit">立即提交</a>
 		</div>
+		<!-- 兼容华为低版本浏览器 -->
+		<script src="https://cdn.bootcss.com/babel-polyfill/6.23.0/polyfill.min.js"></script>
+		<!-- 兼容华为低版本浏览器 -->
         <script src="../../js/vue.js"></script>
         <script src="../../js/vue.touch.js"></script>
         <script src="https://res.wx.qq.com/open/libs/weuijs/1.1.3/weui.min.js"></script>

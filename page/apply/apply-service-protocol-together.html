@@ -35,10 +35,10 @@
 		<div class="page-content" id="app" v-cloak>
 			<h2 class="subtitle">请阅读并同意以下服务申请协议内容</h2>
 			<div class="tab">
-				<div class="tab-type tab-type-1 selected" v-on:click="show = 1">
+				<div class="tab-type tab-type-1 selected" :class="{active: show == 1}" v-on:click="show = 1">
 					出口
 				</div>
-				<div class="tab-type tab-type-2 active" v-on:click="show = 2">
+				<div class="tab-type tab-type-2 selected" :class="{active: show == 2}"  v-on:click="show = 2">
 					物流
 				</div>
 				<div class="tab-type tab-type-3" v-on:click="forbidden">
@@ -72,6 +72,9 @@
 				<p>鉴于，双方本着平等互利、合作共赢的原则，希望就原材料采购等服务业务（以下简称“服务”）进行长期合作，现根据相关法律、法规的规定，经友好协商，达成如下协定，共同遵守。</p>
 			</div>
         </div>
+		<!-- 兼容华为低版本浏览器 -->
+		<script src="https://cdn.bootcss.com/babel-polyfill/6.23.0/polyfill.min.js"></script>
+		<!-- 兼容华为低版本浏览器 -->
         <script src="../../js/vue.js"></script>
         <script src="../../js/vue.touch.js"></script>
         <script src="https://res.wx.qq.com/open/libs/weuijs/1.1.3/weui.min.js"></script>

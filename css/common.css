@@ -7,6 +7,7 @@ textarea {
 
 textarea,
 input{
+    font-family: inherit;
   -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
  /*-webkit-user-select: none;/*禁掉用户可以选中页面中的内容，*/
   -webkit-appearance:none;
@@ -123,6 +124,15 @@ a {
     padding: 0 0.1rem;
 }
 
+.fixed-bottom{
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 0.3rem;
+    background: #fff;
+}
+
 .navigation {
     position: fixed;
     z-index: 999;
@@ -161,12 +171,20 @@ a {
 	padding-right: 0.52rem;
 }
 
+.label-must{
+    text-indent: 10px;
+    position: relative;
+}
 .label-must::before{
 	content: '*';
 	color: #da231b;
 	vertical-align: middle;
-	font-size: 14px;
+	font-size: 18px;
     margin-right: 0.04rem;
+    position: absolute;
+    left: -10px;
+    top: 4px;
+    bottom: 0;
 }
 
 .form-group label{
@@ -193,6 +211,11 @@ a {
     line-height: 0.36rem;
     padding-left: 0.18rem;
     padding-right: 0.18rem;
+    color: #333;
+}
+.form-group input:disabled{
+    background: transparent;
+    color: #333;
 }
 
 .protocol-content{

@@ -39,14 +39,7 @@
             width: auto;
             text-align: right;
             font-size: 13px;
-        }
-        .fixed-bottom{
-            position: fixed;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            padding: 0.3rem;
-            background: #fff;
+			padding-right: 0;
         }
         .subtitle{
             margin-left: 0.3rem;
@@ -54,13 +47,16 @@
         .form-select i.ico-select{
             margin: 0.07rem 0;
         }
-        .input-text{
+        .input-select{
             font-size: 13px;
             line-height: 0.36rem;
             margin-right: 0.1rem;
             color: #c2c2c2;
         }
-        .input-text.active{
+		.input-select:after{
+			vertical-align: baseline;
+        }
+        .input-select.active{
             color: #333;
         }
         </style>
@@ -90,13 +86,12 @@
                 <div class="form" style="margin-bottom: 1.6rem;">
                     <div class="form-group fix">
                         <label class="label-must fl">公司名称</label>
-                        <input class="fr" v-model="stepOne.companyName" type="text" placeholder="请输入">
+                        <input class="fr" :value="stepOne.companyName" type="text" placeholder="请输入" disabled>
                     </div>
                     <div class="form-group form-select fix">
                         <label class="label-must fl">企业性质</label>
                         <input type="hidden" v-model="stepOne.companyType">
-                        <i class="ico-select fr"></i>
-                        <div class="fr input-text" :class="{active: companyTypeText != '请选择'}" v-on:click="companyTypePicker = true" >
+                        <div class="fr input-select" :class="{active: companyTypeText != '请选择'}" v-on:click="companyTypePicker = true" >
                             {{companyTypeText}}
                         </div>
                     </div>
@@ -107,8 +102,7 @@
                     <div class="form-group form-select fix">
                         <label class="label-must fl">注册资本币种</label>
                         <input type="hidden" v-model="stepOne.currencyType">
-                        <i class="ico-select fr"></i>
-                        <div class="fr input-text" :class="{active: currencyTypeText != '请选择'}" v-on:click="currencyTypePicker = true">
+                        <div class="fr input-select" :class="{active: currencyTypeText != '请选择'}" v-on:click="currencyTypePicker = true">
                             {{currencyTypeText}}
                         </div>
                     </div>
@@ -128,7 +122,7 @@
                         <label class="label-must fl">成立时间</label>
 
                         <i class="ico-select fr"></i>
-                        <input class="fr" v-model="stepOne.formed" type="text" placeholder="请选择" v-on:click="datePicker" readonly>
+                        <input  class="fr input-select"  v-model="stepOne.formed" type="text" placeholder="请选择" v-on:click="datePicker" readonly>
                     </div>
 
 
@@ -145,15 +139,15 @@
                     </div>
                     <div class="form-group fix">
                         <label class="label-must fl">联系人</label>
-                        <input class="fr" v-model="stepOne.contacts" type="text" placeholder="请输入">
+                        <input class="fr" :value="stepOne.contacts" type="text" placeholder="请输入" disabled>
                     </div>
                     <div class="form-group fix">
                         <label class="label-must fl">手机号码</label>
-                        <input class="fr" v-model="stepOne.tel" type="number" placeholder="请输入">
+                        <input class="fr" :value="stepOne.tel" type="number" placeholder="请输入" disabled>
                     </div>
                     <div class="form-group fix" style="border: none;">
                         <label class="label-must fl">邮箱</label>
-                        <input class="fr" v-model="stepOne.email" type="text" placeholder="请输入">
+                        <input class="fr" :value="stepOne.email" type="text" placeholder="请输入" disabled>
                     </div>
                 </div>
 
@@ -164,12 +158,13 @@
             <div class="step-content step-two" v-show="step == 1">
 				<div class="form" style="margin-bottom: 1.6rem;">
 					<div class="form-group fix" style="border: none; margin: 0.2rem 0;">
-						<label class="label-must fl">选择营业执照类型</label>
-						<br>
-						<input class="input-hide" type="radio" id="licenseType1" value="1" v-model="stepTwo.licenseType" >
-						<label for="licenseType1" class="btn-outline">多证合一</label>
-						<input class="input-hide" type="radio" id="licenseType2" value="2" v-model="stepTwo.licenseType" >
-						<label for="licenseType2" class="btn-outline">非多证合一</label>
+						<label class="label-must">选择营业执照类型</label>
+						<div style="margin-top: 0.35rem;">
+							<input class="input-hide" type="radio" id="licenseType1" value="1" v-model="stepTwo.licenseType" >
+							<label for="licenseType1" class="btn-outline">多证合一</label>
+							<input class="input-hide" type="radio" id="licenseType2" value="2" v-model="stepTwo.licenseType" >
+							<label for="licenseType2" class="btn-outline">非多证合一</label>
+						</div>
 					</div>
 
 					<div class="form-group form-upload-pic fix" style="border: none; margin: 0.2rem 0;">
@@ -205,6 +200,9 @@
         <picker :show="currencyTypePicker" :list="currencyTypeArr" v-on:close="currencyTypePicker = false" v-on:change="changeCurrencyType"></picker>
 
 		</div>
+		<!-- 兼容华为低版本浏览器 -->
+		<script src="https://cdn.bootcss.com/babel-polyfill/6.23.0/polyfill.min.js"></script>
+		<!-- 兼容华为低版本浏览器 -->
         <script src="../../js/vue.js"></script>
         <script src="../../js/vue.touch.js"></script>
         <script src="../../component/picker/picker.js"></script>
@@ -216,7 +214,7 @@
                 data: {
                     step: 0, // 步骤 0 1 2
                     stepOne: {
-                        companyName: '',
+                        companyName: '瑞典某集团',
                         companyType: '',
                         taxpayerId: '',
                         currencyType: '',
@@ -226,9 +224,9 @@
                         formed: '',
                         product: '',
                         address: '',
-                        contacts: '',
-                        tel: '',
-                        email: ''
+                        contacts: 'Mchelle',
+                        tel: '125362966542',
+                        email: '425103528@qq.com'
                     },
 
 					stepTwo: {

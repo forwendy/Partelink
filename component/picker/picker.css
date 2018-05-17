@@ -44,3 +44,11 @@
 .picker-content p{
     margin: 0.4rem 0.3rem;
 }
+.input-select:after{
+    content: '';
+    display: inline-block;
+    width: 0.13rem;
+    height: 0.22rem;
+    background: url(../../imgs/ico-select@2x.png) no-repeat;
+    background-size: 0.13rem 0.22rem;
+}

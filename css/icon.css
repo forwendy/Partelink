@@ -6,30 +6,6 @@
     background-size: 0.22rem 0.42rem;
 }
 
-.ico-account {
-    display: inline-block;
-    width: 0.32rem;
-    height: 0.32rem;
-    background: url(../imgs/ico-account@2x.png) no-repeat;
-    background-size: 0.32rem;
-}
-
-.ico-password {
-    display: inline-block;
-    width: 0.32rem;
-    height: 0.32rem;
-    background: url(../imgs/ico-password@2x.png) no-repeat;
-    background-size: 0.32rem;
-}
-
-.ico-company {
-    display: inline-block;
-    width: 0.32rem;
-    height: 0.32rem;
-    background: url(../imgs/ico-company@2x.png) no-repeat;
-    background-size: 0.32rem;
-}
-
 .ico-del {
     display: inline-block;
     width: 0.25rem;
@@ -38,50 +14,74 @@
     background-size: 0.25rem;
 }
 
+.ico-account {
+    display: inline-block;
+    width: 0.36rem;
+    height: 0.36rem;
+    background: url(../imgs/ico-account@2x.png) no-repeat top;
+    background-size: 0.32rem;
+}
+
+.ico-password {
+    display: inline-block;
+    width: 0.36rem;
+    height: 0.36rem;
+    background: url(../imgs/ico-password@2x.png) no-repeat top;
+    background-size: 0.32rem;
+}
+
+.ico-company {
+    display: inline-block;
+    width: 0.36rem;
+    height: 0.36rem;
+    background: url(../imgs/ico-company@2x.png) no-repeat top;
+    background-size: 0.32rem;
+}
+
 .ico-car {
     display: inline-block;
-    width: 0.32rem;
-    height: 0.32rem;
-    background: url(../imgs/ico-car@2x.png) no-repeat;
+    width: 0.36rem;
+    height: 0.36rem;
+    background: url(../imgs/ico-car@2x.png) no-repeat top;
     background-size: 0.32rem;
 }
 
 .ico-date {
     display: inline-block;
-    width: 0.32rem;
-    height: 0.32rem;
-    background: url(../imgs/ico-date@2x.png) no-repeat;
+    width: 0.36rem;
+    height: 0.36rem;
+    background: url(../imgs/ico-date@2x.png) no-repeat top;
     background-size: 0.32rem;
 }
 
 .ico-safety {
     display: inline-block;
-    width: 0.32rem;
-    height: 0.32rem;
-    background: url(../imgs/ico-safety@2x.png) no-repeat;
+    width: 0.36rem;
+    height: 0.36rem;
+    background: url(../imgs/ico-safety@2x.png) no-repeat top;
     background-size: 0.32rem;
 }
 .ico-code {
     display: inline-block;
-    width: 0.32rem;
-    height: 0.32rem;
-    background: url(../imgs/ico-code@2x.png) no-repeat;
+    width: 0.36rem;
+    height: 0.36rem;
+    background: url(../imgs/ico-code@2x.png) no-repeat top;
     background-size: 0.32rem;
 }
 
 .ico-tel {
     display: inline-block;
-    width: 0.32rem;
-    height: 0.32rem;
-    background: url(../imgs/ico-tel@2x.png) no-repeat;
+    width: 0.36rem;
+    height: 0.36rem;
+    background: url(../imgs/ico-tel@2x.png) no-repeat top;
     background-size: 0.32rem;
 }
 
 .ico-email {
     display: inline-block;
-    width: 0.32rem;
-    height: 0.32rem;
-    background: url(../imgs/ico-email@2x.png) no-repeat;
+    width: 0.36rem;
+    height: 0.36rem;
+    background: url(../imgs/ico-email@2x.png) no-repeat top;
     background-size: 0.32rem;
 }
 
