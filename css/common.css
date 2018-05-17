@@ -124,6 +124,15 @@ a {
     padding: 0 0.1rem;
 }
 
+.page{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    top: 0;
+    overflow: hidden;
+}
+
 .fixed-bottom{
     position: absolute;
     bottom: 0;
@@ -153,6 +162,8 @@ a {
 
 .page-content {
     margin-top: 0.88rem;
+    overflow: auto;
+    -webkit-overflow-scrolling: touch;
 }
 
 .navigation a {
