@@ -216,6 +216,8 @@ a {
 }
 .form-group input:disabled{
     background: transparent;
+    -webkit-text-fill-color: #333;
+    -webkit-opacity: 1;
     color: #333;
 }
 
