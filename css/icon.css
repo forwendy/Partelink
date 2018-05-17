@@ -14,6 +14,30 @@
     background-size: 0.25rem;
 }
 
+.ico-success {
+    display: inline-block;
+    width: 1.9rem;
+    height: 1.9rem;
+    background: url(../imgs/ico-success@2x.png) no-repeat center;
+    background-size: 1.85rem;
+}
+
+.ico-arrow-right{
+    display: inline-block;
+    width: 0.13rem;
+    height: 0.23rem;
+    background: url(../imgs/ico-arrow-right@2x.png) no-repeat;
+    background-size: 0.13rem 0.23rem;
+}
+
+.ico-select{
+    display: inline-block;
+    width: 0.13rem;
+    height: 0.22rem;
+    background: url(../imgs/ico-select@2x.png) no-repeat;
+    background-size: 0.13rem 0.22rem;
+}
+
 .ico-account {
     display: inline-block;
     width: 0.36rem;
@@ -93,107 +117,83 @@
     background-size: 0.32rem;
 }
 
-.ico-success {
-	display: inline-block;
-	width: 1.85rem;
-	height: 1.85rem;
-	background: url(../imgs/ico-success@2x.png) no-repeat;
-	background-size: 1.85rem;
-}
-
-.ico-arrow-right{
-    display: inline-block;
-    width: 0.13rem;
-    height: 0.23rem;
-    background: url(../imgs/ico-arrow-right@2x.png) no-repeat;
-    background-size: 0.13rem 0.23rem;
-}
-
-.ico-select{
-    display: inline-block;
-    width: 0.13rem;
-    height: 0.22rem;
-    background: url(../imgs/ico-select@2x.png) no-repeat;
-    background-size: 0.13rem 0.22rem;
-}
-
 /* 出口 */
 .ico-type-1{
     display: inline-block;
-    width: 2.54rem;
-    height: 2.54rem;
-    background: url(../imgs/apply-type-1@2x.png) no-repeat;
+    width: 2.6rem;
+    height: 2.6rem;
+    background: url(../imgs/apply-type-1@2x.png) no-repeat center;
     background-size:  2.54rem;
 }
 /* 采集 */
 .ico-type-2{
     display: inline-block;
-    width: 2.54rem;
-    height: 2.54rem;
-    background: url(../imgs/apply-type-2@2x.png) no-repeat;
+    width: 2.6rem;
+    height: 2.6rem;
+    background: url(../imgs/apply-type-2@2x.png) no-repeat center;
     background-size:  2.54rem;
 }
 /* 物流 */
 .ico-type-3{
     display: inline-block;
-    width: 2.54rem;
-    height: 2.54rem;
-    background: url(../imgs/apply-type-3@2x.png) no-repeat;
+    width: 2.6rem;
+    height: 2.6rem;
+    background: url(../imgs/apply-type-3@2x.png) no-repeat center;
     background-size:  2.54rem;
 }
 /* 鑫融 */
 .ico-type-4{
     display: inline-block;
-    width: 2.54rem;
-    height: 2.54rem;
-    background: url(../imgs/apply-type-4@2x.png) no-repeat;
+    width: 2.6rem;
+    height: 2.6rem;
+    background: url(../imgs/apply-type-4@2x.png) no-repeat center;
     background-size:  2.54rem;
 }
 /* 咨询 */
 .ico-type-5{
     display: inline-block;
-    width: 2.54rem;
-    height: 2.54rem;
-    background: url(../imgs/apply-type-5@2x.png) no-repeat;
+    width: 2.6rem;
+    height: 2.6rem;
+    background: url(../imgs/apply-type-5@2x.png) no-repeat center;
     background-size:  2.54rem;
 }
 
 .ico-type-1-min{
     display: inline-block;
-    width: 0.92rem;
-    height: 0.92rem;
-    background: url(../imgs/apply-type-1-min@2x.png) no-repeat;
+    width: 1rem;
+    height: 1rem;
+    background: url(../imgs/apply-type-1-min@2x.png) no-repeat center;
     background-size: 0.92rem;
 }
 
 .ico-type-2-min{
     display: inline-block;
-    width: 0.92rem;
-    height: 0.92rem;
-    background: url(../imgs/apply-type-2-min@2x.png) no-repeat;
+    width: 1rem;
+    height: 1rem;
+    background: url(../imgs/apply-type-2-min@2x.png) no-repeat center;
     background-size: 0.92rem;
 }
 
 .ico-type-3-min{
     display: inline-block;
-    width: 0.92rem;
-    height: 0.92rem;
-    background: url(../imgs/apply-type-3-min@2x.png) no-repeat;
+    width: 1rem;
+    height: 1rem;
+    background: url(../imgs/apply-type-3-min@2x.png) no-repeat center;
     background-size: 0.92rem;
 }
 
 .ico-type-4-min{
     display: inline-block;
-    width: 0.92rem;
-    height: 0.92rem;
-    background: url(../imgs/apply-type-4-min@2x.png) no-repeat;
+    width: 1rem;
+    height: 1rem;
+    background: url(../imgs/apply-type-4-min@2x.png) no-repeat center;
     background-size: 0.92rem;
 }
 
 .ico-type-5-min{
     display: inline-block;
-    width: 0.92rem;
-    height: 0.92rem;
-    background: url(../imgs/apply-type-5-min@2x.png) no-repeat;
+    width: 1rem;
+    height: 1rem;
+    background: url(../imgs/apply-type-5-min@2x.png) no-repeat center;
     background-size: 0.92rem;
 }
