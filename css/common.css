@@ -12,7 +12,6 @@ textarea {
 textarea,
 input{
     font-family: inherit;
-    -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
    /*-webkit-user-select: none;/* 禁掉用户可以选中页面中的内容，*/
     -webkit-appearance:none;
     outline: none;
@@ -128,21 +127,38 @@ a {
     padding: 0 0.1rem;
 }
 
-.fixed-bottom{
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    padding: 0.3rem;
-    background: #fff;
+/* layout */
+html, body {
+  margin: 0;
+  height: 100%;
+  overflow: hidden;
+  position: relative;
 }
+.header,
+.footer {
+  position: absolute;
+  left: 0;
+  right: 0;
+}
+.header {
+  top: 0;
+}
+.footer {
+  bottom: 0;
+}
+.main {
+  height: 100%;
+  padding: 0.88rem 0 0;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+.scroll-container {
+  height: 100%;
+  overflow: auto;
+}
+/* layout */
 
 .navigation {
-    position: fixed;
-    z-index: 999;
-    top: 0;
-    left: 0;
-    right: 0;
     height: 0.88rem;
     background: #0657a5;
 }
@@ -153,10 +169,6 @@ a {
 		width: 750px;
 		margin: 0 auto;
 	}
-}
-
-.page-content {
-    margin-top: 0.88rem;
 }
 
 .navigation a {
@@ -173,6 +185,11 @@ a {
     text-align: center;
     line-height: 0.88rem;
 	padding-right: 0.52rem;
+}
+
+.fixed-bottom{
+    padding: 0.3rem;
+    background: #fff;
 }
 
 .label-must{

@@ -20,21 +20,23 @@
 		<link rel="stylesheet" href="../../css/enquiry.css">
 	</head>
 	<body>
-		<div class="navigation">
+		<div class="header navigation">
 			<a class="ico-back fl" onclick="history.go(-1);"></a>
 			<h1>询价信息</h1>
 		</div>
-		<div class="page-content" id="app" v-cloak>
-            <div class="enquiry-item" v-for="obj in list" v-on:click="openDetail(obj)">
-                <h2>{{obj.name}}</h2>
-                <p class="inaline"><i class="ico-car"></i><b>车型：</b>{{obj.carType}}</p>
-                <p class="inaline"><i class="ico-date"></i><b>询价有效期：</b>{{obj.indate}}</p>
-                <p class="inaline"><i class="ico-safety"></i><b>供应商要求：</b>{{obj.demand}}</p>
-                <a v-if="obj.status === 0" class="to-enquiry" v-on:click="openFrom(obj.id)">我要报价</a>
-                <a v-else-if="obj.status === 1" class="enquiry-status enquiry-status-1"></a>
-                <a v-else-if="obj.status === 2" class="enquiry-status enquiry-status-2"></a>
-                <a v-else-if="obj.status === 3" class="enquiry-status enquiry-status-3"></a>
-            </div>
+	    <div class="main">
+	      	<div class="scroll-container page-content" id="app" v-cloak>
+				<div class="enquiry-item" v-for="obj in list" v-on:click="openDetail(obj)">
+	                <h2>{{obj.name}}</h2>
+	                <p class="inaline"><i class="ico-car"></i><b>车型：</b>{{obj.carType}}</p>
+	                <p class="inaline"><i class="ico-date"></i><b>询价有效期：</b>{{obj.indate}}</p>
+	                <p class="inaline"><i class="ico-safety"></i><b>供应商要求：</b>{{obj.demand}}</p>
+	                <a v-if="obj.status === 0" class="to-enquiry" v-on:click="openFrom(obj.id)">我要报价</a>
+	                <a v-else-if="obj.status === 1" class="enquiry-status enquiry-status-1"></a>
+	                <a v-else-if="obj.status === 2" class="enquiry-status enquiry-status-2"></a>
+	                <a v-else-if="obj.status === 3" class="enquiry-status enquiry-status-3"></a>
+	            </div>
+			</div>
 		</div>
 		<!-- 兼容华为低版本浏览器 -->
 		<script src="https://cdn.bootcss.com/babel-polyfill/6.23.0/polyfill.min.js"></script>

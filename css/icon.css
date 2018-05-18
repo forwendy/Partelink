@@ -8,9 +8,9 @@
 
 .ico-del {
     display: inline-block;
-    width: 0.25rem;
-    height: 0.25rem;
-    background: url(../imgs/ico-del@2x.png) no-repeat;
+    width: 0.36rem;
+    height: 0.36rem;
+    background: url(../imgs/ico-del@2x.png) no-repeat center;
     background-size: 0.25rem;
 }
 

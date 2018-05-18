@@ -35,22 +35,24 @@
         </style>
 	</head>
 	<body>
-		<div class="navigation">
+		<div class="header navigation">
 			<a class="ico-back fl" onclick="history.go(-1);"></a>
 			<h1>报价申请</h1>
 		</div>
-		<div class="page-content" id="app" v-cloak>
-            <div class="block">
-                <div class="form-group fix">
-                    <label class="label-must fl">报价</label>
-                    <input v-model="price" type="number" placeholder="请输入价格（人民币：元）">
-                </div>
-                <div class="form-group fix">
-                    <label class="label-must fl">报价说明</label>
-                    <textarea v-model="description" rows="4" placeholder="请输入报价描述"></textarea>
-                </div>
-            </div>
-			<a class="btn" :class="{disabled: !isFinished}" v-on:click="submit">立即提交</a>
+	    <div class="main">
+	      	<div class="scroll-container page-content" id="app" v-cloak>
+				<div class="block">
+	                <div class="form-group fix">
+	                    <label class="label-must fl">报价</label>
+	                    <input v-model="price" type="number" placeholder="请输入价格（人民币：元）">
+	                </div>
+	                <div class="form-group fix">
+	                    <label class="label-must fl">报价说明</label>
+	                    <textarea v-model="description" rows="4" placeholder="请输入报价描述"></textarea>
+	                </div>
+	            </div>
+				<a class="btn" :class="{disabled: !isFinished}" v-on:click="submit">立即提交</a>
+			</div>
 		</div>
 		<!-- 兼容华为低版本浏览器 -->
 		<script src="https://cdn.bootcss.com/babel-polyfill/6.23.0/polyfill.min.js"></script>

@@ -14,45 +14,10 @@
 		if(deviceWidth > 750) deviceWidth = 750;
 		document.documentElement.style.fontSize = deviceWidth / 7.5 + 'px';
 		</script>
+		<link rel="stylesheet" href="https://res.wx.qq.com/open/libs/weui/1.1.2/weui.min.css">
+		<link rel="stylesheet" type="text/css" href="../css/icon.css ">
 		<link rel="stylesheet" type="text/css" href="../css/common.css ">
 <style>
-html, body {
-	margin: 0;
-  height: 100%;
-  overflow: hidden;
-  position: relative;
-}
-.header,
-.footer {
-  position: absolute;
-  left: 0;
-  right: 0;
-  height: 44px;
-  background: #333;
-  color: #fff;
-}
-
-
-.header {
-  top: 0;
-}
-
-
-.footer {
-  bottom: 0;
-}
-
-
-.main {
-  height: 100%;
-  padding: 44px 0;
-  box-sizing: border-box;
-  overflow: hidden;
-}
-.scroll-container {
-  height: 100%;
-  overflow: auto;
-}
 ul{
   margin: 0;
   padding: 0;
@@ -60,6 +25,7 @@ ul{
 ul li{
     line-height: 0.88rem;
     list-style-type: none;
+	text-align: center;
 }
 a{
     display: block;
@@ -70,39 +36,20 @@ a{
 </style>
 	</head>
 	<body>
-
-  <div class="header">功能入口</div>
-  <div class="main">
-    <div class="scroll-container">
-        <ul>
-            <li><a href="login/login.html">登录</a></li>
-            <li><a href="apply/apply-service.html">单个服务申请</a></li>
-            <li><a href="apply/apply-service-together.html">多个服务申请</a></li>
-            <li><a href="enquiry/enquiry-list.html">询报价</a></li>
-            <li><a href="register/register.html">注册</a></li>
-        </ul>
-	ES5 的对象属性名都是字符串，这容易造成属性名的冲突。比如，你使用了一个他人提供的对象，但又想为这个对象添加新的方法（mixin 模式），新方法的名字就有可能与现有方法产生冲突。如果有一种机制，保证每个属性的名字都是独一无二的就好了，这样就从根本上防止属性名的冲突。这就是 ES6 引入Symbol的原因。
-
-ES6 引入了一种新的原始数据类型Symbol，表示独一无二的值。它是 JavaScript 语言的第七种数据类型，前六种是：undefined、null、布尔值（Boolean）、字符串（String）、数值（Number）、对象（Object）。
-
-Symbol 值通过Symbol函数生成。这就是说，对象的属性名现在可以有两种类型，一种是原来就有的字符串，另一种就是新增的 Symbol 类型。凡是属性名属于 Symbol 类型，就都是独一无二的，可以保证不会与其他属性名产生冲突。
-	    ES5 的对象属性名都是字符串，这容易造成属性名的冲突。比如，你使用了一个他人提供的对象，但又想为这个对象添加新的方法（mixin 模式），新方法的名字就有可能与现有方法产生冲突。如果有一种机制，保证每个属性的名字都是独一无二的就好了，这样就从根本上防止属性名的冲突。这就是 ES6 引入Symbol的原因。
-
-ES6 引入了一种新的原始数据类型Symbol，表示独一无二的值。它是 JavaScript 语言的第七种数据类型，前六种是：undefined、null、布尔值（Boolean）、字符串（String）、数值（Number）、对象（Object）。
-
-Symbol 值通过Symbol函数生成。这就是说，对象的属性名现在可以有两种类型，一种是原来就有的字符串，另一种就是新增的 Symbol 类型。凡是属性名属于 Symbol 类型，就都是独一无二的，可以保证不会与其他属性名产生冲突。
-	    ES5 的对象属性名都是字符串，这容易造成属性名的冲突。比如，你使用了一个他人提供的对象，但又想为这个对象添加新的方法（mixin 模式），新方法的名字就有可能与现有方法产生冲突。如果有一种机制，保证每个属性的名字都是独一无二的就好了，这样就从根本上防止属性名的冲突。这就是 ES6 引入Symbol的原因。
-
-ES6 引入了一种新的原始数据类型Symbol，表示独一无二的值。它是 JavaScript 语言的第七种数据类型，前六种是：undefined、null、布尔值（Boolean）、字符串（String）、数值（Number）、对象（Object）。
-
-Symbol 值通过Symbol函数生成。这就是说，对象的属性名现在可以有两种类型，一种是原来就有的字符串，另一种就是新增的 Symbol 类型。凡是属性名属于 Symbol 类型，就都是独一无二的，可以保证不会与其他属性名产生冲突。
-	    ES5 的对象属性名都是字符串，这容易造成属性名的冲突。比如，你使用了一个他人提供的对象，但又想为这个对象添加新的方法（mixin 模式），新方法的名字就有可能与现有方法产生冲突。如果有一种机制，保证每个属性的名字都是独一无二的就好了，这样就从根本上防止属性名的冲突。这就是 ES6 引入Symbol的原因。
-
-ES6 引入了一种新的原始数据类型Symbol，表示独一无二的值。它是 JavaScript 语言的第七种数据类型，前六种是：undefined、null、布尔值（Boolean）、字符串（String）、数值（Number）、对象（Object）。
-
-Symbol 值通过Symbol函数生成。这就是说，对象的属性名现在可以有两种类型，一种是原来就有的字符串，另一种就是新增的 Symbol 类型。凡是属性名属于 Symbol 类型，就都是独一无二的，可以保证不会与其他属性名产生冲突。
-    </div>
-  </div>
-  <div class="footer"></div>
+		<div class="header navigation">
+	  	  <a class="ico-back fl" onclick="history.go(-1);"></a>
+	  	  <h1>功能入口</h1>
+	    </div>
+	    <div class="main">
+	      <div class="scroll-container page-content">
+	          <ul style="margin-top: 50px;">
+	              <li><a href="login/login.html">登录</a></li>
+	              <li><a href="apply/apply-service.html">单个服务申请</a></li>
+	              <li><a href="apply/apply-service-together.html">多个服务申请</a></li>
+	              <li><a href="enquiry/enquiry-list.html">询报价</a></li>
+	              <li><a href="register/register.html">注册</a></li>
+	          </ul>
+	  	</div>
+	    </div>
 	</body>
 </html>
