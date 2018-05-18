@@ -128,7 +128,7 @@ a {
 }
 
 /* layout */
-html, body {
+html, body, .page{
   margin: 0;
   height: 100%;
   overflow: hidden;
@@ -201,11 +201,12 @@ html, body {
 	content: '*';
 	color: #da231b;
 	vertical-align: middle;
-	font-size: 18px;
+	font-size: 9px;
+  line-height: 22px;
     margin-right: 0.04rem;
     position: absolute;
     left: -10px;
-    top: 0.07rem;
+    top: 0;
     bottom: 0;
 }
 
@@ -242,6 +243,7 @@ html, body {
     color: #333;
 }
 
+/* 协议 */
 .protocol-content{
     padding-bottom: 0.6rem;
 }
@@ -267,6 +269,27 @@ html, body {
     line-height: 2;
     color: #333;
 }
+/* 协议 */
+
+/* 成功提示 */
+.success-message{
+  margin: 1.2rem 0.3rem 0;
+  text-align: center;
+}
+.success-message h2{
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 1;
+    margin: 0.4rem 0;
+    color: #333;
+}
+.success-message p{
+    font-size: 13px;
+    line-height: 1;
+    color: #666;
+    margin-bottom: 0.8rem;
+}
+/* 成功提示 */
 
 .subtitle{
     font-size: 12px;
@@ -275,7 +298,6 @@ html, body {
     margin: 0.25rem 0;
     font-weight: 500;
 }
-
 
 /* 重置weui */
 .my-toast .weui-toast{
@@ -309,10 +331,12 @@ html, body {
     font-size: 13px;
 }
 .my-alert a,
-.my-datepicker a{
+.my-datepicker a,
+.ssq-picker a{
     color: #0657a5;
 }
-.my-datepicker .weui-picker__hd{
+.my-datepicker .weui-picker__hd,
+.ssq-picker .weui-picker__hd{
     font-size: 12px;
     padding: 0.25rem 0.3rem;
 }

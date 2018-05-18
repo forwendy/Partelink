@@ -36,10 +36,10 @@
             font-size: 13px;
         }
         .form-group input{
-            width: auto;
+            width: 4rem;
             text-align: right;
             font-size: 13px;
-			padding-right: 0;
+						padding-right: 0;
         }
         .subtitle{
             margin-left: 0.3rem;
@@ -53,8 +53,8 @@
             margin-right: 0.1rem;
             color: #c2c2c2;
         }
-		.input-select:after{
-			vertical-align: baseline;
+				.input-select:after{
+					vertical-align: baseline;
         }
         .input-select.active{
             color: #333;
@@ -62,11 +62,13 @@
         </style>
 	</head>
 	<body>
-		<div class="navigation">
+<div class="page" id="app" v-cloak>
+		<div class="header navigation">
 			<a class="ico-back fl" onclick="history.go(-1);"></a>
 			<h1>申请服务</h1>
 		</div>
-		<div class="page-content" id="app" v-cloak>
+		<div class="main">
+				<div class="scroll-container page-content">
             <div class="step-process">
                 <div :class="{active: step == 0, done: step > 0}">
                     <i>1</i>
@@ -90,7 +92,7 @@
                     </div>
                     <div class="form-group form-select fix">
                         <label class="label-must fl">企业性质</label>
-                        <input type="hidden" v-model="stepOne.companyType">
+                        <input type="hidden" v-bind:value="stepOne.companyType">
                         <div class="fr input-select" :class="{active: companyTypeText != '请选择'}" v-on:click="companyTypePicker = true" >
                             {{companyTypeText}}
                         </div>
@@ -101,7 +103,7 @@
                     </div>
                     <div class="form-group form-select fix">
                         <label class="label-must fl">注册资本币种</label>
-                        <input type="hidden" v-model="stepOne.currencyType">
+                        <input type="hidden" v-bind:value="stepOne.currencyType">
                         <div class="fr input-select" :class="{active: currencyTypeText != '请选择'}" v-on:click="currencyTypePicker = true">
                             {{currencyTypeText}}
                         </div>
@@ -114,13 +116,13 @@
                         <label class="label-must fl">法人代表</label>
                         <input class="fr" v-model="stepOne.legalPerson" type="text" placeholder="请输入">
                     </div>
-                    <div class="form-group fix">
+                    <div class="form-group form-select fix">
                         <label class="label-must fl">注册地区</label>
-                        <input class="fr" v-model="stepOne.registeredAddress" type="text" placeholder="请输入">
+                        <i class="ico-select fr"></i>
+                        <input  class="fr input-select"  v-model="stepOne.registeredAddress" type="text" placeholder="请选择" v-on:click="placePicker" readonly>
                     </div>
                     <div class="form-group form-select fix" style="border: none;">
                         <label class="label-must fl">成立时间</label>
-
                         <i class="ico-select fr"></i>
                         <input  class="fr input-select"  v-model="stepOne.formed" type="text" placeholder="请选择" v-on:click="datePicker" readonly>
                     </div>
@@ -150,56 +152,55 @@
                         <input class="fr" :value="stepOne.email" type="text" placeholder="请输入" disabled>
                     </div>
                 </div>
-
-                <div class="fixed-bottom">
-                    <a class="btn" :class="{disabled: !isFinishedOne}" v-on:click="toStepTwo">下一步</a>
-                </div>
             </div>
             <div class="step-content step-two" v-show="step == 1">
-				<div class="form" style="margin-bottom: 1.6rem;">
-					<div class="form-group" style="border: none; margin: 0.2rem 0;">
-						<label class="label-must">选择营业执照类型</label>
-						<div style="margin-top: 0.35rem;">
-							<input class="input-hide" type="radio" id="licenseType1" value="1" v-model="stepTwo.licenseType" >
-							<label for="licenseType1" class="btn-outline">多证合一</label>
-							<input class="input-hide" type="radio" id="licenseType2" value="2" v-model="stepTwo.licenseType" >
-							<label for="licenseType2" class="btn-outline">非多证合一</label>
+								<div class="form" style="margin-bottom: 1.6rem;">
+									<div class="form-group" style="border: none; margin: 0.2rem 0;">
+										<label class="label-must">选择营业执照类型</label>
+										<div style="margin-top: 0.35rem;">
+											<input class="input-hide" type="radio" id="licenseType1" value="1" v-model="stepTwo.licenseType" >
+											<label for="licenseType1" class="btn-outline">多证合一</label>
+											<input class="input-hide" type="radio" id="licenseType2" value="2" v-model="stepTwo.licenseType" >
+											<label for="licenseType2" class="btn-outline">非多证合一</label>
+										</div>
+									</div>
+
+									<div class="form-group form-upload-pic" style="border: none; margin: 0.2rem 0;">
+										<label class="label-must">上传营业执照</label><br>
+                    <upload-pic name="licensePic0" v-on:getvalue="getPic"></upload-pic>
+									</div>
+
+									<div class="form-group form-upload-pic" style="border: none; margin: 0.2rem 0;">
+										<label class="label-must">上传IATF16949、环境体系认证证书</label><br>
+                    <upload-pic name="licensePic1" v-on:getvalue="getPic"></upload-pic>
+                    <upload-pic name="licensePic2" v-on:getvalue="getPic"></upload-pic>
+									</div>
+
+									<div class="form-group form-upload-pic" style="border: none; margin: 0.2rem 0;">
+										<label class="label-must">上传职业健康安全管理体系认证证书</label><br>
+                    <upload-pic name="licensePic3" v-on:getvalue="getPic"></upload-pic>
+									</div>
+								</div>
 						</div>
-					</div>
-
-					<div class="form-group form-upload-pic" style="border: none; margin: 0.2rem 0;">
-						<label class="label-must">上传营业执照</label><br>
-                        <upload-pic name="licensePic0" v-on:success=""></upload-pic>
-					</div>
-
-					<div class="form-group form-upload-pic" style="border: none; margin: 0.2rem 0;">
-						<label class="label-must">上传IATF16949、环境体系认证证书</label><br>
-                        <upload-pic name="licensePic1" v-on:success=""></upload-pic>
-                        <upload-pic name="licensePic2" v-on:success=""></upload-pic>
-					</div>
-
-					<div class="form-group form-upload-pic" style="border: none; margin: 0.2rem 0;">
-						<label class="label-must">上传职业健康安全管理体系认证证书</label><br>
-                        <upload-pic name="licensePic3" v-on:success=""></upload-pic>
-					</div>
-				</div>
-				<div class="fixed-bottom">
-					<a class="btn" :class="{disabled: !isFinishedOne}" v-on:click="submit">下一步</a>
-				</div>
-			</div>
-            <div class="step-content step-success" v-show="step == 2">
-				<i class="ico-success"></i>
-				<h2>注册成功！</h2>
-				<p>恭喜你成功注册成为亿领平台的供应商</p>
-				<a class="btn" href="../index.html">返回Partelink亿领公众号</a>
-			</div>
-
+            <div class="step-content" v-show="step == 2" style="height: 100%; padding-top:1px; background:#fff;">
+								<div class="success-message" >
+									<i class="ico-success"></i>
+									<h2>注册成功！</h2>
+									<p>恭喜你成功注册成为亿领平台的供应商</p>
+									<a class="btn" href="../index.html">返回Partelink亿领公众号</a>
+								</div>
+						</div>
         <!-- 选择企业类型 -->
         <picker :show="companyTypePicker" :list="companyTypeArr" v-on:close="companyTypePicker = false" v-on:change="changeCompanyType"></picker>
         <!-- 选择注册资本币种 -->
         <picker :show="currencyTypePicker" :list="currencyTypeArr" v-on:close="currencyTypePicker = false" v-on:change="changeCurrencyType"></picker>
-
+			</div>
 		</div>
+		<div class="footer fixed-bottom">
+				<a v-if="step == 0" class="btn" :class="{disabled: !isFinishedOne}" v-on:click="toStepTwo">下一步</a>
+				<a v-else-if="step == 1" class="btn" :class="{disabled: !isFinishedTwo}" v-on:click="submit">下一步</a>
+	  </div>
+</div>
         <script src="../../js/vue.js"></script>
         <script src="../../js/vue.touch.js"></script>
         <script src="../../component/picker/picker.js"></script>
@@ -229,9 +230,13 @@
                         email: '425103528@qq.com'
                     },
 
-					stepTwo: {
-						licenseType: 1,
-					},
+										stepTwo: {
+											licenseType: 1,
+											licensePic0: '',
+											licensePic1: '',
+											licensePic2: '',
+											licensePic3: ''
+										},
 
                     companyTypePicker: false,
                     companyTypeText: '请选择',
@@ -263,7 +268,100 @@
                     },{
                         value: 3,
                         text: '英镑'
-                    }]
+                    }],
+
+										//省市区数据
+										ssqArr: [{
+										    label: '湖北省',
+										    value: 0,
+										    children: [
+										        {
+										            label: '武汉市',
+										            value: 1,
+																children: [
+																	{
+																		label: '洪山区',
+																		value: 1
+																	},{
+																		label: '武昌区',
+																		value: 2
+																	}
+																]
+										        },
+										        {
+										            label: '襄阳市',
+										            value: 2,
+																children: [
+																	{
+																		label: '洪山区',
+																		value: 1
+																	},{
+																		label: '武昌区',
+																		value: 2
+																	}
+																]
+										        }
+										    ]
+										},
+										{
+										    label: '广东省',
+										    value: 1,
+										    children: [
+										        {
+										            label: '深圳市',
+										            value: 1,
+																children: [
+																	{
+																		label: '福田区',
+																		value: 1
+																	},{
+																		label: '罗湖区',
+																		value: 2
+																	}
+																]
+										        },
+										        {
+										            label: '广州市',
+										            value: 2,
+																children: [
+																	{
+																		label: '福田区',
+																		value: 1
+																	},{
+																		label: '罗湖区',
+																		value: 2
+																	}
+																]
+										        },
+										        {
+										            label: '汕头市',
+										            value: 3,
+																children: [
+																	{
+																		label: '福田区',
+																		value: 1
+																	},{
+																		label: '罗湖区',
+																		value: 2
+																	}
+																]
+										        }
+										    ]
+										},
+										{
+										    label: '北京市',
+										    value: 3,
+												children: [
+													{
+														label: '福田区',
+														value: 1
+													},{
+														label: '罗湖区',
+														value: 2
+													}
+												]
+										}
+										]
                 },
                 computed: {
                     isFinishedOne: function () {
@@ -280,20 +378,31 @@
                         && this.stepOne.contacts != ''
                         && this.stepOne.tel != ''
                         && this.stepOne.email != '';
-                    }
+                    },
+										isFinishedTwo: function(){
+											return this.stepTwo.licensePic0 != ''
+                      && this.stepTwo.licensePic1 != ''
+											&& this.stepTwo.licensePic2 != ''
+											&& this.stepTwo.licensePic3 != '';
+										}
                 },
                 methods: {
-					submit: function () {
-						if(this.isFinishedTwo){
+										getPic: function(payload){
+											var value = payload[0];
+											var name = payload[1];
+											this.stepTwo[name] = value;
+										},
+										submit: function () {
+												if(this.isFinishedTwo){
 
-						}
-						this.step = 2;
-					},
-                    toStepTwo: function () {
-						if(this.isFinishedOne){
+												}
+												this.step = 2;
+										},
+                  	toStepTwo: function () {
+												if(this.isFinishedOne){
 
-						}
-						this.step = 1;
+												}
+												this.step = 1;
                     },
                     changeCompanyType: function (payload) {
                         this.stepOne.companyType = payload[1];
@@ -312,13 +421,13 @@
                             defaultValue: [1991, 6, 9],
                             className: 'my-datepicker',
                             onChange: function(result){
-                                console.log(result)
+                                // console.log(result)
                             },
                             onConfirm: function(result){
                                 var year = result[0].value;
                                 var month = result[1].value + '';
                                 var date = result[2].value + '';
-                                console.log(month)
+                                // console.log(year,month,date);
                                 if(month.length == 1){
                                     month = '0'+ month;
                                 }
@@ -329,7 +438,28 @@
                             },
                             id: 'datePicker'
                         });
-                    }
+                    },
+										placePicker: function () {
+											var _this = this;
+
+											// 级联picker
+											weui.picker(_this.ssqArr, {
+											   className: 'ssq-picker',
+											   container: 'body',
+											   defaultValue: [1, 2, 3], //默认选择
+											   onChange: function (result) {
+											       // console.log(result)
+											   },
+											   onConfirm: function (result) {
+														 var sheng = result[0].label;
+														 var shi = result[1].label;
+														 var qu = result[2].label;
+														 // console.log(sheng,shi,qu);
+														 _this.stepOne.registeredAddress =  sheng + '  ' + shi + ' ' + qu;
+											   },
+											   id: 'doubleLinePicker'
+											});
+										}
                 }
             });
         </script>

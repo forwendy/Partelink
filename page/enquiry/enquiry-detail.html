@@ -14,16 +14,16 @@
 		if(deviceWidth > 750) deviceWidth = 750;
 		document.documentElement.style.fontSize = deviceWidth / 7.5 + 'px';
 		</script>
-        <link rel="stylesheet" href="https://res.wx.qq.com/open/libs/weui/1.1.2/weui.min.css">
+    <link rel="stylesheet" href="https://res.wx.qq.com/open/libs/weui/1.1.2/weui.min.css">
 		<link rel="stylesheet" href="../../css/icon.css">
 		<link rel="stylesheet" href="../../css/common.css">
 		<link rel="stylesheet" href="../../css/enquiry.css">
         <style>
-		.main {
-		  padding-bottom: 1.4rem;
-	  	}
+				.main {
+		  		padding-bottom: 1.4rem;
+	  		}
         .page-content{
-            margin: 0 0.3rem;
+            padding: 0 0.3rem;
         }
         .block{
             font-size: 12px;
@@ -49,54 +49,56 @@
         </style>
 	</head>
 	<body>
+<div class="page" id="app" v-cloak>
 		<div class="header navigation">
 			<a class="ico-back fl" onclick="history.go(-1);"></a>
 			<h1>空气滤清器</h1>
 		</div>
-	    <div class="main">
-	      	<div class="scroll-container page-content" id="app" v-cloak>
-				<div class="block">
-	                <h2>{{name}}</h2>
-	                <div class="enquiry-info-col">
-	                    <div>
-	                        <p>产品型号</p>
-	                        <span>{{typeno}}</span>
-	                    </div>
-	                    <div>
-	                        <p>产品数量</p>
-	                        <span>{{quantity}}件</span>
-	                    </div>
-	                    <div>
-	                        <p>交货地点</p>
-	                        <span>{{place}}</span>
-	                    </div>
-	                </div>
-	            </div>
-	            <h3 class="subtitle">询价信息</h3>
-	            <div class="block">
-	                <p class="fix enquiry-info-row"><span class="fl">公司名称</span>{{commpany}}</p>
-	                <p class="fix enquiry-info-row"><span class="fl">最新询价时间</span>{{newDate}}</p>
-	                <p class="fix enquiry-info-row"><span class="fl">询价有效期</span>{{indate}}</p>
-	                <p class="fix enquiry-info-row"><span class="fl">车型</span>{{carType}}</p>
-	                <p class="fix enquiry-info-row"><span class="fl">制造工艺</span>{{technology}}</p>
-	                <p class="fix enquiry-info-row"><span class="fl">材质</span>{{material}}</p>
-	                <p class="fix enquiry-info-row"><span class="fl">尺寸</span>{{size}}</p>
-	                <p class="fix enquiry-info-row"><span class="fl">重量</span>{{weight}}kg</p>
-	            </div>
-	            <h3 class="subtitle">其他描述</h3>
-	            <div class="block">
-	                <p>{{other}}</p>
-	            </div>
-	            <h3 class="subtitle">供应商要求</h3>
-	            <div class="block" style="margin-bottom: 0.3rem;">
-	                <p v-html="demand"></p>
-	            </div>
-			</div>
+		<div class="main">
+				<div class="scroll-container page-content">
+						<div class="block" style="margin-top: 0.3rem;">
+								<h2>{{name}}</h2>
+								<div class="enquiry-info-col">
+										<div>
+												<p>产品型号</p>
+												<span>{{typeno}}</span>
+										</div>
+										<div>
+												<p>产品数量</p>
+												<span>{{quantity}}件</span>
+										</div>
+										<div>
+												<p>交货地点</p>
+												<span>{{place}}</span>
+										</div>
+								</div>
+						</div>
+						<h3 class="subtitle">询价信息</h3>
+						<div class="block">
+								<p class="fix enquiry-info-row"><span class="fl">公司名称</span>{{commpany}}</p>
+								<p class="fix enquiry-info-row"><span class="fl">最新询价时间</span>{{newDate}}</p>
+								<p class="fix enquiry-info-row"><span class="fl">询价有效期</span>{{indate}}</p>
+								<p class="fix enquiry-info-row"><span class="fl">车型</span>{{carType}}</p>
+								<p class="fix enquiry-info-row"><span class="fl">制造工艺</span>{{technology}}</p>
+								<p class="fix enquiry-info-row"><span class="fl">材质</span>{{material}}</p>
+								<p class="fix enquiry-info-row"><span class="fl">尺寸</span>{{size}}</p>
+								<p class="fix enquiry-info-row"><span class="fl">重量</span>{{weight}}kg</p>
+						</div>
+						<h3 class="subtitle">其他描述</h3>
+						<div class="block">
+								<p>{{other}}</p>
+						</div>
+						<h3 class="subtitle">供应商要求</h3>
+						<div class="block" style="margin-bottom: 0.3rem;">
+								<p v-html="demand"></p>
+						</div>
+				</div>
 		</div>
 
 		<div class="footer fixed-bottom">
-			<a class="btn" v-on:click="openFrom(id)">我要报价</a>
+			<a class="btn" v-on:click="openFrom(id)" href="enquiry-form.html">我要报价</a>
 		</div>
+</div>
 		<!-- 兼容华为低版本浏览器 -->
 		<script src="https://cdn.bootcss.com/babel-polyfill/6.23.0/polyfill.min.js"></script>
 		<!-- 兼容华为低版本浏览器 -->

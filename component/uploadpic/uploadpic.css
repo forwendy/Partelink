@@ -1,0 +1,24 @@
+.upload-pic{
+    margin-top: 0.4rem;
+    margin-right: 0.3rem;
+    display: inline-block;
+    width: 0.9rem;
+    height: 0.9rem;
+    background: url(../../imgs/add-pic@2x.png);
+    background-size: 0.9rem;
+}
+
+.show-pic{
+    margin-top: 0.4rem;
+    margin-right: 0.3rem;
+    display: inline-block;
+    width: 0.9rem;
+    height: 0.9rem;
+    position: relative;
+}
+
+.show-pic .ico-del{
+    position: absolute;
+    right: -0.125rem;
+    top: -0.125rem;
+}

@@ -26,10 +26,13 @@ Vue.component('upload-pic', {
             reader.readAsDataURL(file);
             reader.onload = function(e){
                 _this.value = this.result;
+
+                _this.$emit('getvalue', [_this.value, _this.name]);
             }
         },
         removePic: function (e) {
             this.value = '';
+            _this.$emit('getvalue', [_this.value, _this.name]);
         }
     }
 });

@@ -29,12 +29,13 @@
 		</style>
 	</head>
 	<body>
+	<div class="page" id="app" v-cloak>
 		<div class="header navigation">
 			<a class="ico-back fl" onclick="history.go(-1);"></a>
 			<h1>登录</h1>
 		</div>
 	    <div class="main">
-	      	<div class="scroll-container page-content" id="app" v-cloak>
+	      	<div class="scroll-container page-content">
 				<div class="form-group">
 					<i class="ico-account fl"></i>
 					<input v-model="account" type="text" placeholder="请输入手机号码或邮箱">
@@ -51,6 +52,7 @@
 				</p>
 			</div>
 		</div>
+	</div>
 		<!-- 兼容华为低版本浏览器 -->
 		<script src="https://cdn.bootcss.com/babel-polyfill/6.23.0/polyfill.min.js"></script>
 		<!-- 兼容华为低版本浏览器 -->

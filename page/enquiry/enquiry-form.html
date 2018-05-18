@@ -20,40 +20,46 @@
 		<link rel="stylesheet" href="../../css/enquiry.css">
         <style>
         .page-content{
-            margin: 1.18rem 0.3rem 0;
+            padding: 0 0.3rem;
         }
-        .block{
+        .form{
             font-size: 12px;
             background: #fff;
             padding: 0 0.2rem;
             color: #333;
             min-height: 1.92rem;
+						margin-top: 0.3rem;
         }
+				.label-must::before{
+					line-height: 14px;
+				}
         .btn{
             margin: 0.4rem 0;
         }
         </style>
 	</head>
 	<body>
+	<div class="page" id="app" v-cloak>
 		<div class="header navigation">
 			<a class="ico-back fl" onclick="history.go(-1);"></a>
 			<h1>报价申请</h1>
 		</div>
 	    <div class="main">
-	      	<div class="scroll-container page-content" id="app" v-cloak>
-				<div class="block">
-	                <div class="form-group fix">
-	                    <label class="label-must fl">报价</label>
-	                    <input v-model="price" type="number" placeholder="请输入价格（人民币：元）">
-	                </div>
-	                <div class="form-group fix">
-	                    <label class="label-must fl">报价说明</label>
-	                    <textarea v-model="description" rows="4" placeholder="请输入报价描述"></textarea>
-	                </div>
-	            </div>
-				<a class="btn" :class="{disabled: !isFinished}" v-on:click="submit">立即提交</a>
+	      	<div class="scroll-container page-content">
+						<div class="form">
+							<div class="form-group fix">
+									<label class="label-must fl">报价</label>
+									<input v-model="price" type="number" placeholder="请输入价格（人民币：元）">
+							</div>
+							<div class="form-group fix">
+									<label class="label-must fl">报价说明</label>
+									<textarea v-model="description" rows="4" placeholder="请输入报价描述"></textarea>
+							</div>
+	          </div>
+						<a class="btn" :class="{disabled: !isFinished}" v-on:click="submit">立即提交</a>
 			</div>
 		</div>
+	</div>
 		<!-- 兼容华为低版本浏览器 -->
 		<script src="https://cdn.bootcss.com/babel-polyfill/6.23.0/polyfill.min.js"></script>
 		<!-- 兼容华为低版本浏览器 -->

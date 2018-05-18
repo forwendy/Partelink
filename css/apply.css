@@ -69,50 +69,6 @@ input[type="radio"]:checked + label{
     border-color: #0657a5;
 }
 
-.upload-pic{
-    margin-top: 0.4rem;
-    margin-right: 0.3rem;
-    display: inline-block;
-    width: 0.9rem;
-    height: 0.9rem;
-    background: url(../imgs/add-pic@2x.png);
-    background-size: 0.9rem;
-}
-
-.show-pic{
-    margin-top: 0.4rem;
-    margin-right: 0.3rem;
-    display: inline-block;
-    width: 0.9rem;
-    height: 0.9rem;
-    position: relative;
-}
-
-.show-pic .ico-del{
-    position: absolute;
-    right: -0.125rem;
-    top: -0.125rem;
-}
-
-.step-success{
-    padding: 1.6rem 0.3rem;
-    text-align: center;
-    background: #fff;
-}
-.step-success h2{
-    font-size: 16px;
-    font-weight: 500;
-    line-height: 1;
-    margin: 0.4rem 0;
-    color: #333;
-}
-.step-success p{
-    font-size: 13px;
-    line-height: 1;
-    color: #666;
-    margin-bottom: 0.8rem;
-}
-
 .service-list{
     display: -webkit-flex; /* Safari */
     display: flex;
