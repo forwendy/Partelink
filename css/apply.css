@@ -1,15 +1,12 @@
 .step-process{
-    display: -webkit-flex;      /* 新版本语法: Chrome 21+ */
-    display: flex;              /* 新版本语法: Opera 12.1, Firefox 22+ */
-    display: -webkit-box;    /* 老版本语法: Safari, iOS, Android browser, older WebKit browsers. */
-    display: -moz-box;      /* 老版本语法: Firefox (buggy) */
-    display: -ms-flexbox;  /* 混合版本语法: IE 10 */
-    flex-direction: row;
-    justify-content: space-between;
-    -webkit-justify-content: space-between;
-    padding: 0.6rem 0.3rem 0.4rem;
+    padding: 0.6rem 0 0.4rem;
     background: #fff;
     color: #c2c2c2;
+}
+.step-process>div{
+  float: left;
+  width: 33%;
+  text-align: center;
 }
 .step-process>div i{
     position: relative;
@@ -73,18 +70,8 @@ input[type="radio"]:checked + label{
     border-color: #0657a5;
 }
 
-.service-list{
-    display: -webkit-flex;      /* 新版本语法: Chrome 21+ */
-    display: flex;              /* 新版本语法: Opera 12.1, Firefox 22+ */
-    display: -webkit-box;    /* 老版本语法: Safari, iOS, Android browser, older WebKit browsers. */
-    display: -moz-box;      /* 老版本语法: Firefox (buggy) */
-    display: -ms-flexbox;  /* 混合版本语法: IE 10 */
-    flex-direction: row;
-    justify-content: space-between;
-    -webkit-justify-content: space-between;
-    flex-wrap: wrap;
-}
 .service-list .service{
+    float: left;
     width: 33.3%;
     text-align: center;
     margin-bottom: 0.3rem;
@@ -122,19 +109,12 @@ input[type="radio"]:checked + label{
 
 
 .tab{
-    display: -webkit-flex;      /* 新版本语法: Chrome 21+ */
-    display: flex;              /* 新版本语法: Opera 12.1, Firefox 22+ */
-    display: -webkit-box;    /* 老版本语法: Safari, iOS, Android browser, older WebKit browsers. */
-    display: -moz-box;      /* 老版本语法: Firefox (buggy) */
-    display: -ms-flexbox;  /* 混合版本语法: IE 10 */
-    flex-direction: row;
-    justify-content: space-between;
-    -webkit-justify-content: space-between;
     border-bottom: 1px solid #e5e5e5;
     margin-left: -0.3rem;
     margin-right: -0.3rem;
 }
 .tab-type{
+    float: left;
     width: 19.5%;
     font-size: 13px;
     text-align: center;
