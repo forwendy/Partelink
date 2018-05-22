@@ -177,7 +177,7 @@
 									</div>
 
 									<div class="form-group form-upload-pic" style="border: none; margin: 0.2rem 0;">
-										<label class="label-must">上传职业健康安全管理体系认证证书</label><br>
+										<label>上传职业健康安全管理体系认证证书</label><br>
                     <upload-pic name="licensePic3" v-on:getvalue="getPic"></upload-pic>
 									</div>
 								</div>
@@ -381,9 +381,8 @@
                     },
 										isFinishedTwo: function(){
 											return this.stepTwo.licensePic0 != ''
-                      && this.stepTwo.licensePic1 != ''
-											&& this.stepTwo.licensePic2 != ''
-											&& this.stepTwo.licensePic3 != '';
+                      						&& this.stepTwo.licensePic1 != ''
+											&& this.stepTwo.licensePic2 != '';
 										}
                 },
                 methods: {
