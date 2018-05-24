@@ -9,17 +9,11 @@ textarea {
 	font: 12px "PingFang-SC-Regular", "Microsoft YaHei", sans-serif;
 }
 
-[data-dpr="2"] body,
-[data-dpr="2"] input,
-[data-dpr="2"] textarea {
-    font-size: 24px;
-}
 [data-dpr="3"] body,
 [data-dpr="3"] input,
 [data-dpr="3"] textarea {
-    font-size: 36px;
+    font-size: 14px;
 }
-
 textarea,
 input{
     font-family: inherit;
@@ -123,11 +117,8 @@ a {
 	color: #fff;
     text-align: center;
 }
-[data-dpr="2"] .btn{
-    font-size: 32px;
-}
 [data-dpr="3"] .btn{
-    font-size: 48px;
+    font-size: 18px;
 }
 
 .btn.disabled {
@@ -143,11 +134,8 @@ a {
     line-height: 0.58rem;
     padding: 0 0.1rem;
 }
-[data-dpr="2"] .btn-outline{
-    font-size: 24px;
-}
 [data-dpr="3"] .btn-outline{
-    font-size: 36px;
+    font-size: 14px;
 }
 
 /* layout */
@@ -209,6 +197,9 @@ html, body, .page{
     line-height: 0.88rem;
 	padding-right: 0.52rem;
 }
+[data-dpr="3"] .navigation h1 {
+    font-size: 19px;
+}
 
 .fixed-bottom{
     padding: 0.3rem;
@@ -225,12 +216,15 @@ html, body, .page{
 	color: #da231b;
 	vertical-align: middle;
 	font-size: 9px;
-  line-height: 22px;
+    line-height: 22px;
     margin-right: 0.04rem;
     position: absolute;
     left: -10px;
     top: 0;
     bottom: 0;
+}
+[data-dpr="3"] .label-must::before {
+    font-size: 11px;
 }
 
 .form-group label{
@@ -249,6 +243,11 @@ html, body, .page{
     font-size: 14px;
     width: 5rem;
     padding: 0.16rem 0;
+}
+
+[data-dpr="3"] .form-group input,
+[data-dpr="3"] .form-group textarea{
+    font-size: 16px;
 }
 
 .form-group input{
@@ -277,6 +276,9 @@ html, body, .page{
     line-height: 1;
     text-align: center;
 }
+[data-dpr="3"] .protocol-content h2{
+    font-size: 18px;
+}
 .protocol-content p{
     margin: 0;
     font-size: 12px;
@@ -292,6 +294,10 @@ html, body, .page{
     line-height: 2;
     color: #333;
 }
+[data-dpr="3"] .protocol-content p,
+[data-dpr="3"] .protocol-content h3{
+    font-size: 14px;
+}
 /* 协议 */
 
 /* 成功提示 */
@@ -306,11 +312,17 @@ html, body, .page{
     margin: 0.4rem 0;
     color: #333;
 }
+[data-dpr="3"] .success-message h2{
+    font-size: 18px;
+}
 .success-message p{
     font-size: 13px;
     line-height: 1;
     color: #666;
     margin-bottom: 0.8rem;
+}
+[data-dpr="3"] .success-message p{
+    font-size: 15px;
 }
 /* 成功提示 */
 
@@ -321,7 +333,9 @@ html, body, .page{
     margin: 0.25rem 0;
     font-weight: 500;
 }
-
+[data-dpr="3"] .subtitle{
+    font-size: 14px;
+}
 /* 重置weui */
 .my-toast .weui-toast{
     top: 50%;
@@ -333,6 +347,9 @@ html, body, .page{
     border-radius: 30px;
     transform:translate(-50%,-50%);
     -webkit-transform:translate(-50%,-50%); /* Safari 和 Chrome */
+}
+[data-dpr="3"] .my-toast .weui-toast{
+    font-size: 16px;
 }
 .my-toast i{
     display: none;
@@ -353,6 +370,9 @@ html, body, .page{
     line-height: 0.8rem;
     font-size: 13px;
 }
+[data-dpr="3"] .my-alert .weui-dialog__ft{
+    font-size: 15px;
+}
 .my-alert a,
 .my-datepicker a,
 .ssq-picker a{
@@ -362,4 +382,8 @@ html, body, .page{
 .ssq-picker .weui-picker__hd{
     font-size: 12px;
     padding: 0.25rem 0.3rem;
+}
+[data-dpr="3"] .my-datepicker .weui-picker__hd,
+[data-dpr="3"] .ssq-picker .weui-picker__hd{
+    font-size: 14px;
 }

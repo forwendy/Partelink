@@ -41,6 +41,9 @@
     background: #fff;
     color: #da231b;
 }
+[data-dpr="3"] .step-process i{
+    font-size: 18px;
+}
 .step-process .active,
 .step-process .done{
     color: #da231b;
@@ -121,6 +124,9 @@ input[type="radio"]:checked + label{
     text-align: center;
     line-height: 0.98rem;
     border-top: 2px solid #ccc;
+}
+[data-dpr="3"] .tap-type{
+    font-size: 15px;
 }
 .tab-type.selected{
     border-color: #da231b;

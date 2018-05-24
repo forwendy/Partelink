@@ -28,6 +28,12 @@
 			margin-bottom: 0.2rem;
 		}
 		a{text-decoration: none;}
+		p{
+			font-size: 13px;
+		}
+		[data-dpr="3"] p{
+			font-size: 15px;
+		}
 		</style>
 	</head>
 	<body>
@@ -48,7 +54,7 @@
 					<input v-model="password" type="password" placeholder="请设置密码" v-focus="passwordFocus" v-on:focus="passwordFocus = true" v-on:blur="passwordFocus = false">
 				</div>
 				<a class="btn" :class="{disabled: !isFinished}" v-on:click="submit">登录</a>
-				<p class="fix" style="font-size: 13px;">
+				<p class="fix">
 					<a class="fl" style="color: #999;" href="reset-password-tel.html">忘记密码？</a>
 					<a class="fr" href="../register/register.html">注册账号</a>
 				</p>
