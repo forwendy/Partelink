@@ -56,8 +56,8 @@ body {
     top: 0.18rem;
     right: 0.3rem;
     display: block;
-    width: 1.2rem;
-    height: 1.2rem;
+    width: 1.22rem;
+    height: 1.22rem;
 }
 
 .enquiry-status-1 {
@@ -127,6 +127,6 @@ body {
 
 [data-dpr="3"] .form-group label,
 [data-dpr="3"] .form-group input,
-[data-dpr="3"] .form-group textarea,{
+[data-dpr="3"] .form-group textarea{
     font-size: 14px;
 }
