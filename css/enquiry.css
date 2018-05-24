@@ -56,23 +56,23 @@ body {
     top: 0.18rem;
     right: 0.3rem;
     display: block;
-    width: 1.1rem;
-    height: 1.1rem;
+    width: 1.2rem;
+    height: 1.2rem;
 }
 
 .enquiry-status-1 {
     background: url(../imgs/enquiry-status-1@2x.png) no-repeat center;
-    background-size: 1.05rem;
+    background-size: 1.2rem;
 }
 
 .enquiry-status-2 {
     background: url(../imgs/enquiry-status-2@2x.png) no-repeat center;
-    background-size: 1.05rem;
+    background-size: 1.2rem;
 }
 
 .enquiry-status-3 {
     background: url(../imgs/enquiry-status-3@2x.png) no-repeat center;
-    background-size: 1.05rem;
+    background-size: 1.2rem;
 }
 
 
