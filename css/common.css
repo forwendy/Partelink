@@ -9,6 +9,17 @@ textarea {
 	font: 12px "PingFang-SC-Regular", "Microsoft YaHei", sans-serif;
 }
 
+[data-dpr="2"] body,
+[data-dpr="2"] input,
+[data-dpr="2"] textarea {
+    font-size: 24px;
+}
+[data-dpr="3"] body,
+[data-dpr="3"] input,
+[data-dpr="3"] textarea {
+    font-size: 36px;
+}
+
 textarea,
 input{
     font-family: inherit;
@@ -112,6 +123,12 @@ a {
 	color: #fff;
     text-align: center;
 }
+[data-dpr="2"] .btn{
+    font-size: 32px;
+}
+[data-dpr="3"] .btn{
+    font-size: 48px;
+}
 
 .btn.disabled {
     color: #5d8bb8;
@@ -125,6 +142,12 @@ a {
     border: 1px solid #e5e5e5;
     line-height: 0.58rem;
     padding: 0 0.1rem;
+}
+[data-dpr="2"] .btn-outline{
+    font-size: 24px;
+}
+[data-dpr="3"] .btn-outline{
+    font-size: 36px;
 }
 
 /* layout */

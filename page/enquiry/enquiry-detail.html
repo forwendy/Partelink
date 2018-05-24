@@ -11,10 +11,12 @@
 		<title>询价信息</title>
 		<script>
 		var deviceWidth = document.documentElement.clientWidth;
+		var dpr = window.devicePixelRatio;
+		document.documentElement.setAttribute('data-dpr', dpr);
 		if(deviceWidth > 750) deviceWidth = 750;
 		document.documentElement.style.fontSize = deviceWidth / 7.5 + 'px';
 		</script>
-    <link rel="stylesheet" href="https://res.wx.qq.com/open/libs/weui/1.1.2/weui.min.css">
+    	<link rel="stylesheet" href="https://res.wx.qq.com/open/libs/weui/1.1.2/weui.min.css">
 		<link rel="stylesheet" href="../../css/icon.css">
 		<link rel="stylesheet" href="../../css/common.css">
 		<link rel="stylesheet" href="../../css/enquiry.css">
