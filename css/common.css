@@ -165,7 +165,8 @@ html, body, .page{
 }
 .scroll-container {
   height: 100%;
-  overflow: auto;
+  /* overflow: auto; */
+  overflow-y: scroll;
 }
 /* layout */
 
