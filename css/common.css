@@ -165,8 +165,8 @@ html, body, .page{
 }
 .scroll-container {
   height: 100%;
-  /* overflow: auto; */
-  overflow-y: scroll;
+  overflow:auto;/* winphone8和android4+ */
+  -webkit-overflow-scrolling: touch; /* ios5+ */
 }
 /* layout */
 
