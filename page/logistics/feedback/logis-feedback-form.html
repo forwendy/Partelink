@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no, minimal-ui">
+		<!--iphone-->
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<meta name="format-detection" content="telephone=no, email=no">
+		<!--iphone-->
+		<title>询价筛选</title>
+		<script src="../../../js/fit.js"></script>
+        <link rel="stylesheet" href="https://res.wx.qq.com/open/libs/weui/1.1.2/weui.min.css">
+		<link rel="stylesheet" href="../../../css/icon.css">
+		<link rel="stylesheet" href="../../../css/common.css">
+		<link rel="stylesheet" href="../../../css/logistics.css">
+	</head>
+	<body>
+	<div class="page" id="app" v-cloak>
+		<div class="header navigation">
+			<a class="ico-back fl" onclick="history.go(-1);"></a>
+			<h1>询价筛选</h1>
+		</div>
+	    <div class="main">
+            <div class="scroll-container page-content white">
+                <div class="form filter-form">
+                    <div class="form-group form-select fix">
+                        <label class="fl">起运港</label>
+						<div class="input-select" v-on:click="portPicker" data-key="feedback-from">{{fromPlace}}</div>
+                    </div>
+                    <div class="form-group form-select fix">
+                        <label class="fl">目的港</label>
+						<div class="input-select" v-on:click="portPicker" data-key="feedback-to">{{toPlace}}</div>
+                    </div>
+                    <div class="form-group form-select fix">
+                        <label class="fl">询价时间</label>
+                        <div class="input-select" v-on:click="datePicker">{{date}}</div>
+                    </div>
+                    <a class="btn" v-on:click="submit" style="margin-top: 0.6rem;">确定</a>
+                </div>
+    		</div>
+    	</div>
+    </div>
+		<!-- 兼容华为低版本浏览器 -->
+		<script src="https://cdn.bootcss.com/babel-polyfill/6.23.0/polyfill.min.js"></script>
+		<!-- 兼容华为低版本浏览器 -->
+        <script src="../../../js/vue.js"></script>
+        <script src="../../../js/vue.touch.js"></script>
+        <script src="https://res.wx.qq.com/open/libs/weuijs/1.1.3/weui.min.js"></script>
+        <script>
+            var vapp = new Vue({
+                el: '#app',
+                created: function () {
+					var from = JSON.parse(sessionStorage.getItem('feedback-from-value'));
+					var to = JSON.parse(sessionStorage.getItem('feedback-to-value'));
+					if(from){
+						this.fromPlace = from.englishName;
+					}
+					if(to){
+						this.toPlace = to.englishName;
+					}
+                },
+                data: {
+                    fromPlace: '',
+                    toPlace: '',
+                    date: ''
+                },
+                methods: {
+					portPicker: function (e) {
+						var key = e.currentTarget.getAttribute('data-key');
+						window.location.href = '../select-port.html?key=' + key;
+					},
+                    datePicker: function(e) {
+    					var _this = this;
+    					e.currentTarget.blur();
+    					weui.datePicker({
+    						start: 1990,
+    						end: 2000,
+    						defaultValue: [1991, 6, 9],
+    						className: 'my-datepicker',
+    						onChange: function(result) {
+    							// console.log(result)
+    						},
+    						onConfirm: function(result) {
+    							var year = result[0].value;
+    							var month = result[1].value + '';
+    							var date = result[2].value + '';
+    							// console.log(year,month,date);
+    							if (month.length == 1) {
+    								month = '0' + month;
+    							}
+    							if (date.length == 1) {
+    								date = '0' + date;
+    							}
+    							_this.date = year + '-' + month + '-' + date;
+    						},
+    						id: 'datePicker'
+    					});
+    				},
+                    submit: function () {
+						window.location.href = 'logis-feedback-list.html?fromPlace=' + this.fromPlace + '&toPlace=' + this.toPlace + '&date=' + this.date;
+                    }
+                }
+            });
+        </script>
+	</body>
+</html>

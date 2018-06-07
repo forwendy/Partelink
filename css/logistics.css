@@ -1,0 +1,204 @@
+body {
+    background: #f4f4f4;
+}
+
+.navigation a.ico-search {
+    margin-right: 0.3rem;
+    margin-top: 0.24rem;
+    margin-bottom: 0.24rem;
+}
+
+.enquiry-item {
+    padding: 0.3rem;
+    background: #fff;
+    margin-bottom: 0.1rem;
+    position: relative;
+}
+.enquiry-item:last-child{
+    margin-bottom: 1.8rem;
+}
+.enquiry-item h2 {
+    font-size: 15px;
+    font-weight: 500;
+    color: #000;
+    margin: 0.1rem 0 0.4rem;
+}
+[data-dpr="3"] .enquiry-item h2 {
+    font-size: 17px;
+}
+.enquiry-item p {
+    font-size: 12px;
+    margin: 0.24rem 0 0.1rem;
+    color: #666;
+}
+.enquiry-item p b{
+    color: #333;
+}
+[data-dpr="3"] .enquiry-item p {
+    font-size: 14px;
+}
+.enquiry-item .enquiry-status{
+    top: auto;
+    bottom: 0.4rem;
+}
+
+.ico-from-to{
+    margin: 0 auto;
+    display: block;
+    width: 1.2rem;
+    height: 17px;
+    background: url(../imgs/ico-to@2x.png) no-repeat center;
+    background-size: 1.15rem 0.12rem;
+}
+
+.fixed-btn{
+    position: absolute;
+    left: 0.3rem;
+    bottom: 0.3rem;
+
+    display: block;
+    border-radius: 50%;
+    width: 1.2rem;
+    height: 1.2rem;
+    background: #0657a5;
+    box-shadow: 0 0 10px #0657a5;
+    color: #fff;
+    text-align: center;
+    font-size: 0.24rem;
+}
+
+.fixed-btn img{
+    display: block;
+    margin: 0.2rem auto 0.05rem;
+    width: 0.42rem;
+    height: 0.42rem;
+}
+
+.filter-form{
+    margin-top: 0.62rem;
+    padding: 0 0.3rem;
+    font-size: 13px;
+}
+[data-dpr="3"] .filter-form{
+    font-size: 15px;
+}
+
+.filter-form .form-group{
+    margin: 0;
+    padding: 0;
+}
+.filter-form .form-group label{
+    padding: 0.25rem 0;
+}
+.filter-form .input-select{
+    height: 18px;
+    line-height: 0.36rem;
+    padding: 0.25rem 0;
+    margin-left: 1.8rem;
+    background: url(../imgs/ico-select-big@2x.png) no-repeat right;
+    background-size: 0.16rem 0.27rem;
+}
+.filter-form .input-select:after{
+    display: none;
+}
+
+.ico-port-search{
+    width: 0.6rem;
+    height: 0.6rem;
+}
+.form-port-search{
+    padding: 0;
+    margin: 0.15rem 0.3rem;
+    border: 1px solid #0657a5;
+    border-radius: 3px;
+    background: #fff;
+}
+.form-port-search input{
+    font-size: 13px;
+    padding: 0.15rem 0;
+    margin-left: 0.6rem;
+}
+[data-dpr="3"] .form-port-search input{
+    font-size: 15px;
+}
+
+.port-list {
+    background: #fff;
+}
+.port-list h2{
+    font-size: 14px;
+    color: #666;
+    font-weight: 500;
+    line-height: 28px;
+    padding-left: 0.3rem;
+    border-top: 1px solid #e5e5e5;
+    border-bottom: 1px solid #e5e5e5;
+}
+[data-dpr="3"] .port-list h2{
+    font-size: 16px;
+    line-height: 32px;
+    color: #666;
+}
+.port-list p{
+    font-size: 13px;
+    line-height: 0.88rem;
+    border-bottom: 1px solid #e5e5e5;
+    padding: 0 0.55rem 0 0.3rem;
+    position: relative;
+}
+[data-dpr="3"] .port-list p{
+    font-size: 15px;
+}
+.port-list p::before{
+    content: '';
+    display: block;
+    position: absolute;
+    right: 0.3rem;
+    width: 0.15rem;
+    height: 0.88rem;
+    background: url(../imgs/ico-select@2x.png) no-repeat center;
+    background-size: 0.13rem 0.22rem;
+}
+
+.apply-form .form-group {
+    margin: 0;
+    padding: 0 0.3rem;
+    background: #fff;
+}
+.apply-form .form-group label {
+    padding: 0;
+    margin: 0.3rem 0;
+    font-size: 13px;
+}
+.apply-form .form-group input {
+    width: 4rem;
+    text-align: right;
+    font-size: 13px;
+    padding: 0.3rem 0;
+}
+.apply-form .subtitle {
+    margin-left: 0.3rem;
+}
+.apply-form .form-select i.ico-select {
+    margin: 0.07rem 0;
+}
+.apply-form .input-select {
+    font-size: 13px;
+    padding: 0.3rem 0;
+    line-height: 0.36rem;
+    width: 4rem;
+    text-align: right;
+    color: #c2c2c2;
+}
+.apply-form .input-select:after {
+    vertical-align: baseline;
+    margin-left: 0.1rem;
+}
+.apply-form .input-select.active {
+    color: #333;
+}
+[data-dpr="3"] .apply-form .form-group label ,
+[data-dpr="3"] .apply-form .form-group input ,
+[data-dpr="3"] .apply-form .input-select {
+    font-size: 15px;
+}

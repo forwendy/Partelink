@@ -80,6 +80,9 @@ a {
     float: right;
 }
 
+.white{
+    background: #fff;
+}
 /* 文字超出隐藏 */
 .inaline {
     overflow: hidden;
@@ -116,6 +119,7 @@ a {
     background: #0657a5;
 	color: #fff;
     text-align: center;
+    text-decoration: none;
 }
 [data-dpr="3"] .btn{
     font-size: 18px;
@@ -310,7 +314,7 @@ html, body, .page{
     font-size: 16px;
     font-weight: 500;
     line-height: 1;
-    margin: 0.4rem 0;
+    margin-top: 0.4rem;
     color: #333;
 }
 [data-dpr="3"] .success-message h2{
@@ -320,6 +324,7 @@ html, body, .page{
     font-size: 13px;
     line-height: 1;
     color: #666;
+    margin-top: 0.4rem;
     margin-bottom: 0.8rem;
 }
 [data-dpr="3"] .success-message p{

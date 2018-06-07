@@ -28,7 +28,7 @@
 						<p class="inaline"><i class="ico-car"></i><b>车型：</b>{{obj.carType}}</p>
 						<p class="inaline"><i class="ico-date"></i><b>询价有效期：</b>{{obj.indate}}</p>
 						<p class="inaline"><i class="ico-safety"></i><b>供应商要求：</b>{{obj.demand}}</p>
-						<a v-if="obj.status === 0" class="to-enquiry" v-on:click="openFrom(obj.id)">我要报价</a>
+						<a v-if="obj.status === 0" class="to-enquiry">我要报价</a>
 						<a v-else-if="obj.status === 1" class="enquiry-status enquiry-status-1"></a>
 						<a v-else-if="obj.status === 2" class="enquiry-status enquiry-status-2"></a>
 						<a v-else-if="obj.status === 3" class="enquiry-status enquiry-status-3"></a>
