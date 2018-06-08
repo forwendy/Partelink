@@ -195,16 +195,16 @@
 						<a class="btn" href="../index.html">返回Partelink亿领公众号</a>
 					</div>
 				</div>
-				<!-- 选择企业类型 -->
-				<picker :show="companyTypePicker" :list="companyTypeArr" v-on:close="companyTypePicker = false" v-on:change="changeCompanyType"></picker>
-				<!-- 选择注册资本币种 -->
-				<picker :show="currencyTypePicker" :list="currencyTypeArr" v-on:close="currencyTypePicker = false" v-on:change="changeCurrencyType"></picker>
 			</div>
 		</div>
 		<div class="footer fixed-bottom">
 			<a v-if="step == 0" class="btn" :class="{disabled: !isFinishedOne}" v-on:click="toStepTwo">下一步</a>
 			<a v-else-if="step == 1" class="btn" :class="{disabled: !isFinishedTwo}" v-on:click="submit">下一步</a>
 		</div>
+		<!-- 选择企业类型 -->
+		<picker :show="companyTypePicker" :list="companyTypeArr" v-on:close="companyTypePicker = false" v-on:change="changeCompanyType"></picker>
+		<!-- 选择注册资本币种 -->
+		<picker :show="currencyTypePicker" :list="currencyTypeArr" v-on:close="currencyTypePicker = false" v-on:change="changeCurrencyType"></picker>
 	</div>
 	<script src="../../js/vue.js"></script>
 	<script src="../../js/vue.touch.js"></script>
