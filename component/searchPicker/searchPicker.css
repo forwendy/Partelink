@@ -1,0 +1,50 @@
+.right-slide-fade-enter-active {
+    transition: all .3s ease;
+}
+
+.right-slide-fade-leave-active {
+    transition: all .3s ease;
+}
+
+.right-slide-fade-enter, .right-slide-fade-leave-to
+/* .slide-fade-leave-active for below version 2.1.8 */{
+    opacity: 0;
+}
+
+.search-picker-list {
+    background: #fff;
+}
+.search-picker-list h2{
+    font-size: 14px;
+    color: #666;
+    font-weight: 500;
+    line-height: 28px;
+    padding-left: 0.3rem;
+    border-top: 1px solid #e5e5e5;
+    border-bottom: 1px solid #e5e5e5;
+}
+[data-dpr="3"] .search-picker-list h2{
+    font-size: 16px;
+    line-height: 32px;
+    color: #666;
+}
+.search-picker-list p{
+    font-size: 13px;
+    line-height: 0.88rem;
+    border-bottom: 1px solid #e5e5e5;
+    padding: 0 0.55rem 0 0.3rem;
+    position: relative;
+}
+[data-dpr="3"] .search-picker-list p{
+    font-size: 15px;
+}
+.search-picker-list p::before{
+    content: '';
+    display: block;
+    position: absolute;
+    right: 0.3rem;
+    width: 0.15rem;
+    height: 0.88rem;
+    background: url(../../imgs/ico-select@2x.png) no-repeat center;
+    background-size: 0.13rem 0.22rem;
+}

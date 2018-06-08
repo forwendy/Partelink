@@ -14,6 +14,7 @@
 		<link rel="stylesheet" href="../../../css/icon.css">
 		<link rel="stylesheet" href="../../../css/common.css">
     	<link rel="stylesheet" href="../../../component/picker/picker.css">
+    	<link rel="stylesheet" href="../../../component/searchPicker/searchPicker.css">
 		<link rel="stylesheet" href="../../../css/logistics.css">
 
 	</head>
@@ -35,13 +36,13 @@
                     </div>
                     <div class="form-group form-select fix">
                         <label class="label-must fl">起运港</label>
-						<div class="fr input-select" :class="{active: form.fromPlace != ''}" v-on:click="portPicker" data-key="apply-from">
+						<div class="fr input-select" :class="{active: form.fromPlace != ''}"  v-on:click="fromPortPicker = true">
                             <template v-if="form.fromPlace != ''">{{form.fromPlace}}</template><template v-else>请选择</template>
                         </div>
                     </div>
                     <div class="form-group form-select fix">
                         <label class="label-must fl">目的港</label>
-						<div class="fr input-select" :class="{active: form.toPlace != ''}" v-on:click="portPicker" data-key="apply-to">
+						<div class="fr input-select" :class="{active: form.toPlace != ''}"  v-on:click="toPortPicker = true">
                             <template v-if="form.toPlace != ''">{{form.toPlace}}</template><template v-else>请选择</template>
                         </div>
                     </div>
@@ -100,6 +101,9 @@
 		<div class="footer fixed-bottom">
 			<a class="btn" :class="{disabled: !isFinished}" v-on:click="submit">立即提交</a>
 		</div>
+
+		<search-picker title="起运港" hotPortUrl="" searchUrl="" :show="fromPortPicker" v-on:close="fromPortPicker = false" v-on:change="changePort"></search-picker>
+		<search-picker title="目的港" hotPortUrl="" searchUrl="" :show="toPortPicker" v-on:close="toPortPicker = false" v-on:change="changePort"></search-picker>
         <!-- 选择询价方式 -->
         <picker :show="enquiryTypePicker" :list="enquiryTypeArr" v-on:close="enquiryTypePicker = false" v-on:change="changeEnquiryType"></picker>
         <!-- 选择货盘类型 -->
@@ -117,6 +121,7 @@
         <script src="../../../js/vue.js"></script>
         <script src="../../../js/vue.touch.js"></script>
     	<script src="../../../component/picker/picker.js"></script>
+    	<script src="../../../component/searchPicker/searchPicker.js"></script>
         <script src="https://res.wx.qq.com/open/libs/weuijs/1.1.3/weui.min.js"></script>
         <script>
             var vapp = new Vue({
@@ -149,6 +154,9 @@
                         goodsWeight: '',
                         loadingSpot: ''
                     },
+
+					fromPortPicker: false,
+					toPortPicker: false,
 
                     /* 选择询价方式 */
                     enquiryTypePicker: false,
@@ -347,10 +355,16 @@
     					this.form.enquiryType = payload[1];
     					this.enquiryTypeText = payload[0];
     				},
-					portPicker: function (e) {
-						var key = e.currentTarget.getAttribute('data-key');
-						window.location.href = '../select-port.html?key=' + key;
-					},
+					changePort: function  (payload) {
+                        var type = payload[0];
+	                    var obj = payload[1];
+						if(type == '起运港'){
+							this.form.fromPlace = obj.englishName;
+						}
+						if(type == '目的港'){
+							this.form.toPlace = obj.englishName;
+						}
+                    },
                     datePicker: function(e) {
     					var _this = this;
     					e.currentTarget.blur();

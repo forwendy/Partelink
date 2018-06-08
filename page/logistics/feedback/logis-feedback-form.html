@@ -13,6 +13,7 @@
         <link rel="stylesheet" href="https://res.wx.qq.com/open/libs/weui/1.1.2/weui.min.css">
 		<link rel="stylesheet" href="../../../css/icon.css">
 		<link rel="stylesheet" href="../../../css/common.css">
+    	<link rel="stylesheet" href="../../../component/searchPicker/searchPicker.css">
 		<link rel="stylesheet" href="../../../css/logistics.css">
 	</head>
 	<body>
@@ -26,19 +27,21 @@
                 <div class="form filter-form">
                     <div class="form-group form-select fix">
                         <label class="fl">起运港</label>
-						<div class="input-select" v-on:click="portPicker" data-key="feedback-from">{{fromPlace}}</div>
+						<div class="input-select" v-on:click="fromPortPicker = true">{{fromPlace}}</div>
                     </div>
                     <div class="form-group form-select fix">
                         <label class="fl">目的港</label>
-						<div class="input-select" v-on:click="portPicker" data-key="feedback-to">{{toPlace}}</div>
+						<div class="input-select" v-on:click="toPortPicker = true">{{toPlace}}</div>
                     </div>
                     <div class="form-group form-select fix">
                         <label class="fl">询价时间</label>
                         <div class="input-select" v-on:click="datePicker">{{date}}</div>
                     </div>
-                    <a class="btn" v-on:click="submit" style="margin-top: 0.6rem;">确定</a>
+                    <a class="btn" v-on:click="submit" style="margin-top: 0.6rem;">查询</a>
                 </div>
     		</div>
+			<search-picker title="起运港" hotPortUrl="" searchUrl="" :show="fromPortPicker" v-on:close="fromPortPicker = false" v-on:change="changePort"></search-picker>
+			<search-picker title="目的港" hotPortUrl="" searchUrl="" :show="toPortPicker" v-on:close="toPortPicker = false" v-on:change="changePort"></search-picker>
     	</div>
     </div>
 		<!-- 兼容华为低版本浏览器 -->
@@ -46,6 +49,7 @@
 		<!-- 兼容华为低版本浏览器 -->
         <script src="../../../js/vue.js"></script>
         <script src="../../../js/vue.touch.js"></script>
+    	<script src="../../../component/searchPicker/searchPicker.js"></script>
         <script src="https://res.wx.qq.com/open/libs/weuijs/1.1.3/weui.min.js"></script>
         <script>
             var vapp = new Vue({
@@ -63,13 +67,21 @@
                 data: {
                     fromPlace: '',
                     toPlace: '',
-                    date: ''
+                    date: '',
+					fromPortPicker: false,
+					toPortPicker: false
                 },
                 methods: {
-					portPicker: function (e) {
-						var key = e.currentTarget.getAttribute('data-key');
-						window.location.href = '../select-port.html?key=' + key;
-					},
+					changePort: function  (payload) {
+                        var type = payload[0];
+	                    var obj = payload[1];
+						if(type == '起运港'){
+							this.fromPlace = obj.englishName;
+						}
+						if(type == '目的港'){
+							this.toPlace = obj.englishName;
+						}
+                    },
                     datePicker: function(e) {
     					var _this = this;
     					e.currentTarget.blur();

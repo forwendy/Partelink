@@ -1,7 +1,7 @@
 Vue.component('picker', {
     template: '<div><transition name="fade"><div v-show="show" class="mask"></div></transition>\
     <transition name="picker-slide-fade">\
-        <div v-show="show" class="picker-modal">\
+        <div v-show="show" class="picker-modal" style="z-index:1;">\
             <div class="picker-control fix">\
                 <span class="fl" v-if="text.length == 0">请选择</span>\
                 <span class="fl" v-else>{{text}}</span>\
@@ -31,7 +31,9 @@ Vue.component('picker', {
             this.value = value;
         },
         sumbit: function () {
-            this.$emit('change', [this.text, this.value]);
+            if(this.value != ''){
+                this.$emit('change', [this.text, this.value]);
+            }
             this.$emit('close');
         }
     }

@@ -122,44 +122,6 @@ body {
     font-size: 15px;
 }
 
-.port-list {
-    background: #fff;
-}
-.port-list h2{
-    font-size: 14px;
-    color: #666;
-    font-weight: 500;
-    line-height: 28px;
-    padding-left: 0.3rem;
-    border-top: 1px solid #e5e5e5;
-    border-bottom: 1px solid #e5e5e5;
-}
-[data-dpr="3"] .port-list h2{
-    font-size: 16px;
-    line-height: 32px;
-    color: #666;
-}
-.port-list p{
-    font-size: 13px;
-    line-height: 0.88rem;
-    border-bottom: 1px solid #e5e5e5;
-    padding: 0 0.55rem 0 0.3rem;
-    position: relative;
-}
-[data-dpr="3"] .port-list p{
-    font-size: 15px;
-}
-.port-list p::before{
-    content: '';
-    display: block;
-    position: absolute;
-    right: 0.3rem;
-    width: 0.15rem;
-    height: 0.88rem;
-    background: url(../imgs/ico-select@2x.png) no-repeat center;
-    background-size: 0.13rem 0.22rem;
-}
-
 .apply-form .form-group {
     margin: 0;
     padding: 0 0.3rem;
@@ -201,4 +163,90 @@ body {
 [data-dpr="3"] .apply-form .form-group input ,
 [data-dpr="3"] .apply-form .input-select {
     font-size: 15px;
+}
+
+.logis-info{
+    padding: 0.2rem 0.2rem 0.3rem;
+    background: #fff;
+}
+.logis-info h2{
+    font-size: 15px;
+    font-weight: 500;
+    line-height: 1;
+    padding-top: 0.2rem;
+    padding-bottom: 0.2rem;
+    margin-bottom: 0.3rem;
+    border-bottom: 1px dashed #d6d6d6;
+}
+.logis-info p{
+    font-size: 14px;
+    line-height: 1;
+    padding-bottom: 0.25rem;
+}
+[data-dpr="3"] .logis-info h2{
+    font-size: 17px;
+}
+[data-dpr="3"] .logis-info p{
+    font-size: 16px;
+}
+.logis-bill{
+    background: #fff;
+    padding: 1px 0.2rem;
+
+}
+.logis-bill-title{
+    font-size: 12px;
+    color: #666;
+}
+[data-dpr="3"] .logis-bill-title{
+    font-size: 12px;
+    color: #666;
+}
+.logis-bill-row{
+    margin: 0.3rem 0;
+}
+.logis-bill-row span{
+    float: left;
+    display: block;
+    width: 33.3%;
+}
+.logis-bill-row span:nth-child(2){
+    text-align: center;
+}
+.logis-bill-row span:nth-child(3){
+    text-align: right;
+}
+.logis-bill-total{
+    padding-top: 0.3rem;
+    border-top: 1px dashed #d6d6d6;
+}
+.logis-bill-total b{
+    color: #666;
+    font-weight: 500;
+}
+
+.other-service{
+    position: absolute;
+    top: 0.88rem;
+    bottom: 0;
+    right: 0;
+    width: 5rem;
+    background: #fff;
+    padding: 0.4rem 0.3rem;
+}
+.other-service .form-radio{
+    display: inline-block;
+    width: 1.6rem;
+    text-align: center;
+    line-height: 0.6rem;
+    border: 1px solid #dedede;
+    border-radius: 3px;
+    margin-right: 0.2rem;
+    margin-top: 0.3rem;
+    font-size: 13px;
+    color: #666;
+}
+.other-service input[type="radio"]:checked + .form-radio{
+    border-color: #0657a5;
+    color: #0657a5;
 }

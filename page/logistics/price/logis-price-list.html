@@ -83,7 +83,6 @@
                         id:0,
                         from: 'wuhan',
                         to: 'ELKHART',
-                        status: 0, // 0 报价中  1 已报价
                         boxType: '20GP',
                         boxNumber: 1,
                         beginDate: '2018-05-15',
@@ -92,7 +91,6 @@
                         id:1,
                         from: 'WUHAN',
                         to: 'ELKHART',
-                        status: 1, // 0 报价中  1 已报价
                         boxType: '20GP',
                         boxNumber: 1,
                         beginDate: '2018-05-15',
@@ -102,7 +100,6 @@
                         id:3,
                         from: 'WUHAN',
                         to: 'ELKHART',
-                        status: 0, // 0 报价中  1 已报价
                         boxType: '20GP',
                         boxNumber: 1,
                         beginDate: '2018-05-15',
@@ -111,7 +108,6 @@
                         id:4,
                         from: 'WUHAN',
                         to: 'ELKHART',
-                        status: 1, // 0 报价中  1 已报价
                         boxType: '20GP',
                         boxNumber: 1,
                         beginDate: '2018-05-15',
@@ -121,9 +117,7 @@
                 },
                 methods: {
                     openDetail: function (obj) {
-						if(obj.status == 0){
-	                        window.location.href = '../detail/logis-detail.html?id=' + obj.id;
-						}
+						window.location.href = '../detail/logis-detail.html?id=' + obj.id + '&edit=true';
                     }
                 }
             });

@@ -8,63 +8,243 @@
 		<meta name="apple-mobile-web-app-status-bar-style" content="black">
 		<meta name="format-detection" content="telephone=no, email=no">
 		<!--iphone-->
-		<title>物流询价</title>
+		<title>运价详情</title>
 		<script src="../../../js/fit.js"></script>
         <link rel="stylesheet" href="https://res.wx.qq.com/open/libs/weui/1.1.2/weui.min.css">
 		<link rel="stylesheet" href="../../../css/icon.css">
 		<link rel="stylesheet" href="../../../css/common.css">
 		<link rel="stylesheet" href="../../../css/logistics.css">
-		<style>
-			.success-message p{
-				line-height:2;
-				margin-bottom: 0.6rem;
-			}
-		</style>
+        <style>
+		.page-content{
+			padding: 0.3rem;
+		}
+		.subtitle{
+			line-height: 1;
+			margin: 0.28rem 0;
+		}
+		.ico-add{
+			margin-right: 0.1rem;
+		}
+		.form-group{
+			margin: 0.25rem 0 0.15rem;
+			border: 1px solid #dedede;
+		}
+		.form-group input{
+			width:  4.5rem;
+			font-size: 11px;
+		}
+		.text-info{
+			color: #ababab;
+			font-size: 11px;
+		}
+		.other-service .btn{
+			font-size: 14px;
+		}
+		[data-dpr="3"] .other-service .btn{
+			font-size: 16px;
+		}
+		[data-dpr="3"] .form-group input,
+		[data-dpr="3"] .text-info{
+			font-size: 11px;
+		}
+        </style>
 	</head>
 	<body>
 	<div class="page" id="app" v-cloak>
 		<div class="header navigation">
 			<a class="ico-back fl" onclick="history.go(-1);"></a>
-            <a class="ico-search fr" href="logis-feedback-form.html"></a>
-			<h1>物流询价</h1>
+			<h1>运价详情</h1>
 		</div>
-	    <div class="main">
-            <div class="scroll-container page-content" :class="{white: list.length == 0 }">
-                <template v-if="list.length == 0">
-                    <div class="success-message">
-    	  				<i class="ico-info"></i>
-    	  				<p>抱歉，暂无询价信息，您可以点击下方按钮查询更多运价信息。</p>
-    	  				<a class="btn" href="../price/logis-price-form.html">查询更多运价</a>
-    	  			</div>
-                </template>
-                <template v-else>
-                    <div class="enquiry-item" v-for="obj in list" v-on:click="openDetail(obj)">
-                        <h2 class="fix"><span class="fl">{{obj.from.toUpperCase()}}</span><span class="fr">{{obj.to.toUpperCase()}}</span><i class="ico-from-to"></i></h2>
-                        <p class="inaline"><b>柜型：</b>{{obj.boxType}}</p>
-                        <p class="inaline"><b>柜量：</b>{{obj.boxNumber}}</p>
-                        <p class="inaline"><b>有效期：</b>{{obj.beginDate}} 至 {{obj.endDate}}</p>
-                        <a v-if="obj.status === 0" class="enquiry-status enquiry-status-0"></a>
-                        <a v-else-if="obj.status === 1" class="enquiry-status enquiry-status-1"></a>
-                    </div>
-                </template>
-    		</div>
-    	    </div>
-        </div>
-		<!-- 兼容华为低版本浏览器 -->
-		<script src="https://cdn.bootcss.com/babel-polyfill/6.23.0/polyfill.min.js"></script>
-		<!-- 兼容华为低版本浏览器 -->
-        <script src="../../../js/vue.js"></script>
-        <script src="../../../js/vue.touch.js"></script>
-        <script src="https://res.wx.qq.com/open/libs/weuijs/1.1.3/weui.min.js"></script>
-        <script>
-            var vapp = new Vue({
-                el: '#app',
-                data: {
-                },
-                methods: {
+        <div class="main">
+            <div class="scroll-container page-content">
+				<div class="logis-info">
+					<h2 class="fix"><span class="fl">{{detail.from.toUpperCase()}}</span><span class="fr">{{detail.to.toUpperCase()}}</span><i class="ico-from-to"></i></h2>
+					<div class="fix">
+						<div class="fl" style="width:33.3%;">
+							<p>柜型</p>
+							<span>{{detail.boxType}}</span>
+						</div>
+						<div class="fl" style="width:33.3%;text-align: center;">
+							<p>柜量</p>
+							<span>{{detail.boxNumber}}件</span>
+						</div>
+						<div class="fl" style="width:33.3%;text-align: right;">
+							<p>交易类型</p>
+							<span>{{detail.tradeType}}</span>
+						</div>
+					</div>
+				</div>
+	            <h3 class="subtitle">费用明细 <span class="fr" v-show="edit" v-on:click="otherServiceModel = true"><i class="ico-add"></i>附加服务</span></h3>
+				<div class="logis-bill" style="margin-bottom: 2rem;">
+					<p class="logis-bill-title logis-bill-row fix">
+						<span>费用名称</span>
+						<span>币种</span>
+						<span>单价</span>
+					</p>
+					<p class="logis-bill-row fix" v-for="obj in bill">
+						<span>{{obj.name}}</span>
+						<span>{{obj.currency}}</span>
+						<span>{{obj.price}}</span>
+					</p>
+					<p class="logis-bill-row fix" v-show="otherService != ''" style="color: #0657a5;">
+						<span>拖车费</span>
+						<span>CNY</span>
+						<span>待定</span>
+					</p>
+					<p class="logis-bill-total logis-bill-row fix">
+						<span><b>费用合计：</b></span>
+						<span><b>USD：</b>{{USDTotal}}</span>
+						<span><b>CNY：</b>{{CNYTotal}}</span>
+					</p>
+				</div>
+      		</div>
+  		</div>
+		<div class="footer fixed-bottom">
+			<a class="btn" href="../apply/logis-apply-success.html" v-if="otherService != ''">询价申请</a>
+				<a class="btn" href="logis-detail-success.html" v-else>订舱委托</a>
+		</div>
 
-                }
-            });
-        </script>
+		<transition name="fade"><div v-show="otherServiceModel" style="top:0.88rem;" class="mask"></div></transition>
+		<transition name="fade">
+			<div class="other-service" v-show="otherServiceModel">
+				<p>请选择附加服务：</p>
+				<input type="radio" name="service" value="1" id="radio1" v-model="otherServiceCache">
+				<label class="form-radio" for="radio1">
+					拖车
+				</label>
+				<input type="radio" name="service" value="2" id="radio2" v-model="otherServiceCache">
+				<label class="form-radio" for="radio2">
+					内装
+				</label>
+				<div v-show="otherServiceCache == '1'" style="margin-top: 0.38rem;">
+					<label class="label-must">装箱地址</label>
+					<div class="form-group">
+						<input type="text" placeholder="请填写详细地址，例如街道名称，门牌号码等" v-model="address">
+					</div>
+					<p class="text-info">注：拖车费需根据装箱地址进行报价。</p>
+				</div>
+				<a class="btn" style="margin-top: 0.6rem;" v-on:click="submit">确定</a>
+			</div>
+		</transition>
+    </div>
+
+	<!-- 兼容华为低版本浏览器 -->
+	<script src="https://cdn.bootcss.com/babel-polyfill/6.23.0/polyfill.min.js"></script>
+	<!-- 兼容华为低版本浏览器 -->
+	<script src="../../../js/vue.js"></script>
+	<script src="../../../js/vue.touch.js"></script>
+	<script src="../../../component/picker/picker.js"></script>
+	<script src="../../../component/searchPicker/searchPicker.js"></script>
+	<script src="https://res.wx.qq.com/open/libs/weuijs/1.1.3/weui.min.js"></script>
+	<script>
+
+		var vapp = new Vue({
+			el: '#app',
+			created: function () {
+				var data =  parseUrl(location.href);
+				if( data && data.edit){
+					this.edit = true;
+				}
+			},
+			data: {
+				edit: false,
+
+				otherServiceModel: false,
+				otherServiceCache: '',
+				otherService: '',
+				address: '',
+
+				detail: {
+					from: 'WUHAN',
+					to: 'ELKHART',
+					boxType: '20GP',
+					boxNumber: '1',
+					tradeType: 'CIF',
+				},
+				bill:[
+					{
+						name: '海运费',
+						currency: 'USD',
+						price: 1500
+					},{
+						name: 'THC',
+						currency: 'CNY',
+						price: 825
+					},{
+						name: '订舱费',
+						currency: 'CNY',
+						price: 200
+					},{
+						name: '文件费',
+						currency: 'CNY',
+						price: 500
+					},{
+						name: '报关费',
+						currency: 'CNY',
+						price: 250
+					},{
+						name: '电放费',
+						currency: 'CNY',
+						price: 425
+					},{
+						name: '港杂费',
+						currency: 'CNY',
+						price: 265
+					},{
+						name: '保险费',
+						currency: 'CNY',
+						price: 825
+					},{
+						name: '报检封箱费',
+						currency: 'CNY',
+						price: 100
+					}
+				]
+			},
+			computed: {
+				CNYTotal: function () {
+					var total = 0;
+					var bill = this.bill;
+					for (var i = 0; i < bill.length; i++) {
+						if(bill[i].currency == 'CNY'){
+							total += bill[i].price;
+						}
+					}
+					return total;
+				},
+				USDTotal: function () {
+					var total = 0;
+					var bill = this.bill;
+					for (var i = 0; i < bill.length; i++) {
+						if(bill[i].currency == 'USD'){
+							total += bill[i].price;
+						}
+					}
+					return total;
+				}
+			},
+			methods: {
+				submit: function functionName() {
+					this.otherServiceModel = false;
+					this.otherService = this.otherServiceCache;
+				}
+			}
+		});
+
+function parseUrl(url){
+  var result = {};
+  var query = url.split("?")[1];
+  if(query == undefined){
+	return;
+  }
+  var queryArr = query.split("&");
+  queryArr.forEach(function(item){
+    var value = item.split("=")[0];
+    var key = item.split("=")[1];
+    result[value] = key;
+  });
+  return result;
+}
+	</script>
 	</body>
 </html>

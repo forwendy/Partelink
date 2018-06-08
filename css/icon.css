@@ -13,7 +13,13 @@
     background: url(../imgs/ico-search@2x.png) no-repeat center;
     background-size: 0.36rem 0.37rem;
 }
-
+.ico-add{
+    display: inline-block;
+    width: 0.25rem;
+    height: 0.25rem;
+    background: url(../imgs/ico-add@2x.png) no-repeat center;
+    background-size: 0.22rem;
+}
 .ico-del {
     display: inline-block;
     width: 0.36rem;

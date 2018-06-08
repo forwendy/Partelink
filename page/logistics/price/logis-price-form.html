@@ -8,11 +8,12 @@
 		<meta name="apple-mobile-web-app-status-bar-style" content="black">
 		<meta name="format-detection" content="telephone=no, email=no">
 		<!--iphone-->
-		<title>询价筛选</title>
+		<title>运价查询</title>
 		<script src="../../../js/fit.js"></script>
         <link rel="stylesheet" href="https://res.wx.qq.com/open/libs/weui/1.1.2/weui.min.css">
 		<link rel="stylesheet" href="../../../css/icon.css">
     	<link rel="stylesheet" href="../../../component/picker/picker.css">
+    	<link rel="stylesheet" href="../../../component/searchPicker/searchPicker.css">
 		<link rel="stylesheet" href="../../../css/common.css">
 		<link rel="stylesheet" href="../../../css/logistics.css">
 	</head>
@@ -20,29 +21,31 @@
 	<div class="page" id="app" v-cloak>
 		<div class="header navigation">
 			<a class="ico-back fl" onclick="history.go(-1);"></a>
-			<h1>询价筛选</h1>
+			<h1>运价查询</h1>
 		</div>
 	    <div class="main">
             <div class="scroll-container page-content white">
                 <div class="form filter-form">
                     <div class="form-group form-select fix">
                         <label class="fl">起运港</label>
-						<div class="input-select" v-on:click="portPicker" data-key="price-from">{{fromPlace}}</div>
+						<div class="input-select" v-on:click="fromPortPicker = true">{{fromPlace}}</div>
                     </div>
                     <div class="form-group form-select fix">
                         <label class="fl">目的港</label>
-						<div class="input-select" v-on:click="portPicker" data-key="price-to">{{toPlace}}</div>
+						<div class="input-select" v-on:click="toPortPicker = true">{{toPlace}}</div>
                     </div>
                     <div class="form-group form-select fix">
                         <label class="fl">交易类型</label>
                         <div class="input-select" v-on:click="typePicker = true">{{typeText}}</div>
                     </div>
-                    <a class="btn" v-on:click="submit" style="margin-top: 0.6rem;">确定</a>
+                    <a class="btn" v-on:click="submit" style="margin-top: 0.6rem;">查询</a>
                 </div>
     		</div>
 
             <!-- 选择交易类型 -->
             <picker :show="typePicker" :list="typeArr" v-on:close="typePicker = false" v-on:change="changeType"></picker>
+			<search-picker title="起运港" hotPortUrl="" searchUrl="" :show="fromPortPicker" v-on:close="fromPortPicker = false" v-on:change="changePort"></search-picker>
+			<search-picker title="目的港" hotPortUrl="" searchUrl="" :show="toPortPicker" v-on:close="toPortPicker = false" v-on:change="changePort"></search-picker>
     	</div>
     </div>
 		<!-- 兼容华为低版本浏览器 -->
@@ -51,6 +54,7 @@
         <script src="../../../js/vue.js"></script>
         <script src="../../../js/vue.touch.js"></script>
     	<script src="../../../component/picker/picker.js"></script>
+    	<script src="../../../component/searchPicker/searchPicker.js"></script>
         <script src="https://res.wx.qq.com/open/libs/weuijs/1.1.3/weui.min.js"></script>
         <script>
 
@@ -79,15 +83,24 @@
     					value: 1,
     					text: 'FOB'
     				}],
+
+					fromPortPicker: false,
+					toPortPicker: false
                 },
                 methods: {
                     changeType: function (payload) {
                         this.type = payload[1];
                         this.typeText = payload[0];
                     },
-                    portPicker: function (e) {
-						var key = e.currentTarget.getAttribute('data-key');
-						window.location.href = '../select-port.html?key=' + key;
+                    changePort: function  (payload) {
+                        var type = payload[0];
+	                    var obj = payload[1];
+						if(type == '起运港'){
+							this.fromPlace = obj.englishName;
+						}
+						if(type == '目的港'){
+							this.toPlace = obj.englishName;
+						}
                     },
                     submit: function () {
 						window.location.href = 'logis-price-list.html?fromPlace=' + this.fromPlace + '&toPlace=' + this.toPlace + '&type=' + this.type;
