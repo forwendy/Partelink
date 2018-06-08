@@ -108,11 +108,11 @@
 		<transition name="fade">
 			<div class="other-service" v-show="otherServiceModel">
 				<p>请选择附加服务：</p>
-				<input type="radio" name="service" value="1" id="radio1" v-model="otherServiceCache">
+				<input class="input-hide" type="radio" name="service" value="1" id="radio1" v-model="otherServiceCache">
 				<label class="form-radio" for="radio1">
 					拖车
 				</label>
-				<input type="radio" name="service" value="2" id="radio2" v-model="otherServiceCache">
+				<input class="input-hide" type="radio" name="service" value="2" id="radio2" v-model="otherServiceCache">
 				<label class="form-radio" for="radio2">
 					内装
 				</label>
