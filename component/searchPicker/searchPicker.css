@@ -15,17 +15,16 @@
     background: #fff;
 }
 .search-picker-list h2{
-    font-size: 14px;
+    font-size: 12px;
     color: #666;
     font-weight: 500;
-    line-height: 28px;
+    line-height: 2em;
     padding-left: 0.3rem;
     border-top: 1px solid #e5e5e5;
     border-bottom: 1px solid #e5e5e5;
 }
 [data-dpr="3"] .search-picker-list h2{
-    font-size: 16px;
-    line-height: 32px;
+    font-size: 14px;
     color: #666;
 }
 .search-picker-list p{

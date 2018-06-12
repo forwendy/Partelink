@@ -1,0 +1,80 @@
+.user-info{
+    height: 3rem;
+    background: url(../imgs/user-center-bg.jpg) no-repeat center;
+    background-size: 100%;
+    text-align: center;
+    color: #fff;
+}
+
+.user-pic{
+    display: inline-block;
+    width: 1.04rem;
+    height: 1.04rem;
+    border-radius: 50%;
+    border: 0.08rem solid #7fafe7;
+    background: #fff url(../imgs/user-pic@2x.png) no-repeat center;
+    background-size: 0.52rem 0.5rem;
+    margin-top: 0.4rem;
+}
+
+.user-info h1{
+    font-size: 13px;
+    font-weight: 500;
+    line-height: 1;
+    margin-top: 0.18rem;
+}
+.user-info p{
+    font-size: 11px;
+    line-height: 1;
+    margin-top: 0.2rem;
+}
+[data-dpr="3"] .user-info h1{
+    font-size: 15px;
+}
+[data-dpr="3"] .user-info p{
+    font-size: 13px;
+}
+
+.list-title{
+    font-size: 13px;
+    line-height: 0.86rem;
+    color: #333;
+    font-weight: 500;
+    padding: 0 0.3rem;
+}
+
+[data-dpr="3"] .list-title{
+    font-size: 15px;
+}
+.list-item{
+    display: block;
+    font-size: 13px;
+    line-height: 0.86rem;
+    color: #333;
+    font-weight: 500;
+    padding: 0 0.55rem 0 0.3rem;
+    border-bottom: 1px solid #e5e5e5;
+    background: #fff url(../imgs/ico-select@2x.png) no-repeat 7.05rem center;
+    background-size: 0.13rem 0.22rem;
+}
+
+.ico-label-apply,
+.ico-label-price{
+    width: 0.3rem;
+    height: 0.3rem;
+    vertical-align: middle;
+    margin-right: 0.15rem;
+}
+
+.mark-point{
+    display: block;
+    font-size: 0.18rem;
+    line-height: 0.26rem;
+    min-width: 0.18rem;
+    padding: 0 0.04rem;
+    margin: 0.3rem 0;
+    text-align: center;
+    border-radius: 50%;
+    color: #fff;
+    background: #da231b;
+}

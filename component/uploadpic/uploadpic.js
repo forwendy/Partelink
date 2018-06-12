@@ -32,7 +32,7 @@ Vue.component('upload-pic', {
         },
         removePic: function (e) {
             this.value = '';
-            _this.$emit('getvalue', [_this.value, _this.name]);
+            this.$emit('getvalue', [this.value, this.name]);
         }
     }
 });

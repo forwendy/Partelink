@@ -142,6 +142,27 @@ a {
     font-size: 14px;
 }
 
+.tab {
+    margin-top: 0.2rem;
+    line-height: 0.88rem;
+    background: #fff;
+    border-radius: 3px;
+}
+.tab-item{
+    float: left;
+    width: 50%;
+    text-align: center;
+    font-size: 13px;
+    color: #333;
+}
+[data-dpr="3"] .tab-item{
+    font-size: 15px;
+}
+.tab-item.active{
+    color: #0657a5;
+    border-bottom: 0.03rem solid #0657a5;
+}
+
 /* layout */
 html, body, .page{
   margin: 0;
@@ -334,6 +355,7 @@ html, body, .page{
 
 .subtitle{
     font-size: 12px;
+    line-height: 1;
     border-left: 0.08rem solid #0657a5;
     padding-left: 0.1rem;
     margin: 0.25rem 0;

@@ -19,7 +19,7 @@ body {
 }
 .enquiry-item h2 {
     font-size: 15px;
-    font-weight: 500;
+    font-weight: 700;
     color: #000;
     margin: 0.1rem 0 0.4rem;
 }
@@ -32,6 +32,7 @@ body {
     color: #666;
 }
 .enquiry-item p b{
+    font-weight: 500;
     color: #333;
 }
 [data-dpr="3"] .enquiry-item p {
