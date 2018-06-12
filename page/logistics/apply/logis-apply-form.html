@@ -81,7 +81,7 @@
                         </div>
                     </div>
                     <div class="form-group form-select fix">
-                        <label class="label-must fl">货物毛重（kg）</label>
+                        <label class="label-must fl">货物毛重(kg)</label>
                         <input class="fr" type="number" v-model="form.goodsWeight" placeholder="请输入">
                     </div>
                     <div class="form-group form-select fix" style="border: none;">
@@ -126,20 +126,6 @@
         <script>
             var vapp = new Vue({
                 el: '#app',
-                created: function () {
-					var from = JSON.parse(sessionStorage.getItem('apply-from-value'));
-					var to = JSON.parse(sessionStorage.getItem('apply-to-value'));
-					if(from){
-						this.form.fromPlace = from.englishName;
-					}
-					if(to){
-						this.form.toPlace = to.englishName;
-					}
-                },
-                destroyed: function () {
-                    sessionStorage.removeItem('apply-from-value');
-                    sessionStorage.removeItem('apply-to-value');
-                },
                 data: {
                     form: {
                         enquiryType: '',
@@ -177,6 +163,9 @@
                         text: '海运整箱'
                     }, {
                         value: 1,
+                        text: '海运拼箱'
+                    }, {
+                        value: 2,
                         text: '空运'
                     }],
 

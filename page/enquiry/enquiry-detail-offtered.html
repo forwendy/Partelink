@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no, minimal-ui">
+		<!--iphone-->
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<meta name="format-detection" content="telephone=no, email=no">
+		<!--iphone-->
+		<title>询价信息</title>
+		<script src="../../js/fit.js"></script>
+    	<link rel="stylesheet" href="https://res.wx.qq.com/open/libs/weui/1.1.2/weui.min.css">
+		<link rel="stylesheet" href="../../css/icon.css">
+		<link rel="stylesheet" href="../../css/common.css">
+		<link rel="stylesheet" href="../../css/enquiry.css">
+        <style>
+		.main {
+		  	padding-bottom: 1.4rem;
+	  	}
+        .page-content{
+            padding: 0 0.3rem;
+        }
+        .block{
+            font-size: 12px;
+            background: #fff;
+            padding: 0 0.2rem;
+            color: #333;
+            min-height: 1.92rem;
+            border-radius: 3px;
+        }
+		[data-dpr="3"] .block{
+			font-size: 14px;
+		}
+        p{
+            margin: 0;
+            padding: 0.2rem 0;
+            line-height: 1.5;
+        }
+        h2{
+            font-size: 15px;
+            font-weight: 500;
+            line-height: 1;
+            margin: 0;
+            padding: 0.4rem 0 0.25rem;
+            color: #0657a5;
+            border-bottom: 1px dashed #d6d6d6;
+        }
+		[data-dpr="3"] h2{
+			font-size: 17px;
+		}
+        h2 span{
+            font-size: 14px;
+        }
+        [data-dpr="3"] h2 span{
+            font-size: 16px;
+        }
+        .enquiry-info-textarea{
+            height: 2rem;
+            padding: 0.2rem 0;
+        }
+        .enquiry-info-textarea p{
+            padding: 0;
+        }
+        </style>
+	</head>
+	<body>
+<div class="page" id="app" v-cloak>
+		<div class="header navigation">
+			<a class="ico-back fl" onclick="history.go(-1);"></a>
+			<h1>空气滤清器</h1>
+		</div>
+		<div class="main">
+				<div class="scroll-container page-content">
+						<div class="block" style="margin-top: 0.3rem;">
+								<h2 class="fix">{{name}}
+                                    <span class="fr" v-if="status == 1" style="color: #f8c16c;">已报价</span>
+                                    <span class="fr" v-if="status == 2" style="color: #ff7373;">未采纳</span>
+                                    <span class="fr" v-if="status == 3" style="color: #8dd188;">已采纳</span>
+                                </h2>
+								<div class="enquiry-info-col fix">
+										<div>
+												<p>产品型号</p>
+												<span>{{typeno}}</span>
+										</div>
+										<div style="text-align: center;">
+												<p>产品数量</p>
+												<span>{{quantity}}件</span>
+										</div>
+										<div style="text-align: right;">
+												<p>交货地点</p>
+												<span>{{place}}</span>
+										</div>
+								</div>
+						</div>
+
+                        <div class="tab fix">
+                            <div class="tab-item" :class="{active: tab == 1}" v-on:click="tab = 1">
+                                产品详情
+                            </div>
+                            <div class="tab-item" :class="{active: tab == 2}" v-on:click="tab = 2">
+                                报价记录
+                            </div>
+                        </div>
+                        <div class="tab-content" v-show="tab == 1">
+                            <h3 class="subtitle">询价信息</h3>
+    						<div class="block">
+    								<p class="fix enquiry-info-row"><span class="fl">公司名称</span>{{commpany}}</p>
+    								<p class="fix enquiry-info-row"><span class="fl">最新询价时间</span>{{newDate}}</p>
+    								<p class="fix enquiry-info-row"><span class="fl">询价有效期</span>{{indate}}</p>
+    								<p class="fix enquiry-info-row"><span class="fl">车型</span>{{carType}}</p>
+    								<p class="fix enquiry-info-row"><span class="fl">制造工艺</span>{{technology}}</p>
+    								<p class="fix enquiry-info-row"><span class="fl">材质</span>{{material}}</p>
+    								<p class="fix enquiry-info-row"><span class="fl">尺寸</span>{{size}}</p>
+    								<p class="fix enquiry-info-row"><span class="fl">重量</span>{{weight}}kg</p>
+    						</div>
+    						<h3 class="subtitle">其他描述</h3>
+    						<div class="block">
+    								<p>{{other}}</p>
+    						</div>
+    						<h3 class="subtitle">供应商要求</h3>
+    						<div class="block" style="margin-bottom: 0.3rem;">
+    								<p v-html="demand"></p>
+    						</div>
+                        </div>
+                        <div class="tab-content" v-show="tab == 2">
+                            <h3 class="subtitle">报价信息</h3>
+                            <div class="block">
+                                    <p class="fix enquiry-info-row"><span class="fl" style="width:1.45rem;text-align:left;">报价</span><span class="fl">{{price}}元</span></p>
+                                    <div class="fix enquiry-info-textarea"><span class="fl" >报价说明</span><p style="margin-left:1.45rem;">{{description}}</p></div>
+                            </div>
+    						<h3 class="subtitle" v-show="status == 2">未采纳意见</h3>
+    						<div class="block"  v-show="status == 2" style="margin-bottom: 0.3rem; color:#333;">
+    								<p>{{unadopted}}</p>
+    						</div>
+                        </div>
+
+				</div>
+		</div>
+
+		<div class="footer fixed-bottom">
+			<a class="btn" onclick="history.go(-1);">返回上一页</a>
+		</div>
+</div>
+		<!-- 兼容华为低版本浏览器 -->
+		<script src="https://cdn.bootcss.com/babel-polyfill/6.23.0/polyfill.min.js"></script>
+		<!-- 兼容华为低版本浏览器 -->
+        <script src="../../js/vue.js"></script>
+        <script src="../../js/vue.touch.js"></script>
+        <script src="https://res.wx.qq.com/open/libs/weuijs/1.1.3/weui.min.js"></script>
+        <script>
+            var vapp = new Vue({
+                el: '#app',
+    			created: function () {
+    				var data =  parseUrl(location.href);
+    				if( data && data.status){
+                        this.status = data.status;
+                        this.$nextTick(function () {
+                        });
+    				}
+    			},
+                data: {
+                    'id': '11241',
+                    'typeno': '11R22.5',
+                    'quantity': 50000,
+                    'place': '罗马尼亚',
+                    'commpany': '瑞典某集团',
+                    'name': '空气滤清器',
+                    'carType': '商用车',
+                    'technology': '压铸',
+                    'material': '铝合金',
+                    'size': '200×100',
+                    'weight': '500',
+                    'indate': '2018-05-30',
+                    'newDate': '2018-04-09',
+                    'other': '相关图纸、工艺、技术参数、要求等电话沟通！',
+                    'demand': 'IATR16949认证<br>VDA6.3认证',
+
+                    status: 1, // 1 已报价 2 未采纳 3 已采纳
+                    tab: 1, // 1 产品详情； 2 报价记录
+                    price: '150000',
+                    description: '此价格还可以再根据数量进行优惠',
+                    unadopted: '价格有点高'
+                },
+                methods: {
+                }
+            });
+            function parseUrl(url){
+              var result = {};
+              var query = url.split("?")[1];
+              if(query == undefined){
+            	return;
+              }
+              var queryArr = query.split("&");
+              queryArr.forEach(function(item){
+                var value = item.split("=")[0];
+                var key = item.split("=")[1];
+                result[value] = key;
+              });
+              return result;
+            }
+        </script>
+	</body>
+</html>

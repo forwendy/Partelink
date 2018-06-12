@@ -80,6 +80,8 @@
                     openDetail: function (obj) {
 						if(obj.status == 0){
 	                        window.location.href = 'enquiry-detail.html?id=' + obj.id;
+						}else {
+		                    window.location.href = 'enquiry-detail-offtered.html?id=' + obj.id + '&status=' + obj.status;
 						}
                     }
                 }

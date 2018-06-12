@@ -54,16 +54,6 @@
         <script>
             var vapp = new Vue({
                 el: '#app',
-                created: function () {
-					var from = JSON.parse(sessionStorage.getItem('feedback-from-value'));
-					var to = JSON.parse(sessionStorage.getItem('feedback-to-value'));
-					if(from){
-						this.fromPlace = from.englishName;
-					}
-					if(to){
-						this.toPlace = to.englishName;
-					}
-                },
                 data: {
                     fromPlace: '',
                     toPlace: '',

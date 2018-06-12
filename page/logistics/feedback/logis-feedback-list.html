@@ -45,6 +45,8 @@
                         <p class="inaline"><b>有效期：</b>{{obj.beginDate}} 至 {{obj.endDate}}</p>
                         <a v-if="obj.status === 0" class="enquiry-status enquiry-status-0"></a>
                         <a v-else-if="obj.status === 1" class="enquiry-status enquiry-status-1"></a>
+                        <a v-else-if="obj.status === 2" class="enquiry-status logis-status-2"></a>
+                        <a v-else-if="obj.status === 3" class="enquiry-status logis-status-3"></a>
                     </div>
                 </template>
     		</div>
@@ -69,7 +71,7 @@
                         id:0,
                         from: 'wuhan',
                         to: 'ELKHART',
-                        status: 0, // 0 报价中  1 已报价
+                        status: 0, // 0 报价中  1 已报价 2 订舱中  3 已订舱
                         boxType: '20GP',
                         boxNumber: 1,
                         beginDate: '2018-05-15',
@@ -78,7 +80,7 @@
                         id:1,
                         from: 'WUHAN',
                         to: 'ELKHART',
-                        status: 1, // 0 报价中  1 已报价
+                        status: 1, // 0 报价中  1 已报价 2 订舱中  3 已订舱
                         boxType: '20GP',
                         boxNumber: 1,
                         beginDate: '2018-05-15',
@@ -88,7 +90,7 @@
                         id:3,
                         from: 'WUHAN',
                         to: 'ELKHART',
-                        status: 0, // 0 报价中  1 已报价
+                        status: 2, // 0 报价中  1 已报价 2 订舱中  3 已订舱
                         boxType: '20GP',
                         boxNumber: 1,
                         beginDate: '2018-05-15',
@@ -97,7 +99,7 @@
                         id:4,
                         from: 'WUHAN',
                         to: 'ELKHART',
-                        status: 1, // 0 报价中  1 已报价
+                        status: 3, // 0 报价中  1 已报价 2 订舱中  3 已订舱
                         boxType: '20GP',
                         boxNumber: 1,
                         beginDate: '2018-05-15',
@@ -107,8 +109,8 @@
                 },
                 methods: {
                     openDetail: function (obj) {
-						if(obj.status == 1){
-	                        window.location.href = '../detail/logis-detail.html?id=' + obj.id;
+						if(obj.status == 1 || obj.status == 3){
+	                        window.location.href = '../detail/logis-detail.html?id=' + obj.id + '&status=' + obj.status;
 						}
                     }
                 }

@@ -197,11 +197,11 @@
 				</div>
 			</div>
 		</div>
-		<div class="footer fixed-bottom" v-show="step == 0 && isFinishedOne">
-			<a class="btn" v-on:click="toStepTwo">下一步</a>
+		<div class="footer fixed-bottom" v-show="step == 0 ">
+			<a class="btn" :class="{disabled: !isFinishedOne}" v-on:click="toStepTwo">下一步</a>
 		</div>
-		<div class="footer fixed-bottom" v-show="step == 1 && isFinishedTwo">
-			<a class="btn" v-on:click="submit">下一步</a>
+		<div class="footer fixed-bottom" v-show="step == 1 ">
+			<a class="btn" :class="{disabled: !isFinishedTwo}" v-on:click="submit">下一步</a>
 		</div>
 		<!-- 选择企业类型 -->
 		<picker :show="companyTypePicker" :list="companyTypeArr" v-on:close="companyTypePicker = false" v-on:change="changeCompanyType"></picker>

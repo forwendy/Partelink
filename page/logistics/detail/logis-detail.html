@@ -19,7 +19,6 @@
 			padding: 0.3rem;
 		}
 		.subtitle{
-			line-height: 1;
 			margin: 0.28rem 0;
 		}
 		.ico-add{
@@ -62,15 +61,15 @@
 					<div class="fix">
 						<div class="fl" style="width:33.3%;">
 							<p>柜型</p>
-							<span>{{detail.boxType}}</span>
+							<span style="color: #666;">{{detail.boxType}}</span>
 						</div>
-						<div class="fl" style="width:33.3%;text-align: center;">
-							<p>柜量</p>
-							<span>{{detail.boxNumber}}件</span>
-						</div>
-						<div class="fl" style="width:33.3%;text-align: right;">
+						<div class="fr">
 							<p>交易类型</p>
-							<span>{{detail.tradeType}}</span>
+							<span style="color: #666;">{{detail.tradeType}}</span>
+						</div>
+						<div style="margin: 0 33.3%;">
+							<p style="text-align: center;">柜量</p>
+							<span style="color: #666;margin-left: 38%;">{{detail.boxNumber}}</span>
 						</div>
 					</div>
 				</div>
@@ -87,7 +86,8 @@
 						<span>{{obj.price}}</span>
 					</p>
 					<p class="logis-bill-row fix" v-show="otherService != ''" style="color: #0657a5;">
-						<span>拖车费</span>
+						<span v-if="otherService==1">拖车费</span>
+						<span v-else-if="otherService==2">内装费</span>
 						<span>CNY</span>
 						<span>待定</span>
 					</p>
@@ -99,12 +99,12 @@
 				</div>
       		</div>
   		</div>
-		<div class="footer fixed-bottom">
+		<div class="footer fixed-bottom" v-show="status == 1">
 			<a class="btn" href="../apply/logis-apply-success.html" v-if="otherService != ''">询价申请</a>
-				<a class="btn" href="logis-detail-success.html" v-else>订舱委托</a>
+			<a class="btn" href="logis-detail-success.html" v-else>订舱委托</a>
 		</div>
 
-		<transition name="fade"><div v-show="otherServiceModel" style="top:0.88rem;" class="mask"></div></transition>
+		<transition name="fade"><div v-show="otherServiceModel" style="top:0.88rem;" class="mask" v-on:click="otherServiceModel = !otherServiceModel"></div></transition>
 		<transition name="fade">
 			<div class="other-service" v-show="otherServiceModel">
 				<p>请选择附加服务：</p>
@@ -145,6 +145,9 @@
 				if( data && data.edit){
 					this.edit = true;
 				}
+				if( data && data.status){
+					this.status = data.status;
+				}
 			},
 			data: {
 				edit: false,
@@ -154,6 +157,7 @@
 				otherService: '',
 				address: '',
 
+				status: 1, // (0 报价中)  1 已报价 (2 订舱中)  3 已订舱
 				detail: {
 					from: 'WUHAN',
 					to: 'ELKHART',
@@ -225,8 +229,13 @@
 			},
 			methods: {
 				submit: function functionName() {
-					this.otherServiceModel = false;
-					this.otherService = this.otherServiceCache;
+
+					if(this.address == ''){
+						weui.toast('请填写详细地址', {duration: 500,className: 'my-toast'});
+					}else {
+						this.otherServiceModel = false;
+						this.otherService = this.otherServiceCache;
+					}
 				}
 			}
 		});
