@@ -36,7 +36,7 @@
 }
 
 .list-title{
-    font-size: 14px;
+    font-size: 13px;
     line-height: 0.86rem;
     color: #333;
     font-weight: 500;
@@ -44,11 +44,11 @@
 }
 
 [data-dpr="3"] .list-title{
-    font-size: 16px;
+    font-size: 15px;
 }
 .list-item{
     display: block;
-    font-size: 14px;
+    font-size: 13px;
     line-height: 0.86rem;
     color: #333;
     font-weight: 500;
@@ -58,7 +58,7 @@
     background-size: 0.13rem 0.22rem;
 }
 [data-dpr="3"] .list-item{
-    font-size: 16px;
+    font-size: 15px;
 }
 
 .ico-label-apply,
@@ -72,8 +72,8 @@
 .mark-point{
     display: block;
     font-size: 0.2rem;
-    line-height: 0.27rem;
-    max-height: 0.26rem;
+    line-height: 0.28rem;
+    max-height: 0.27rem;
     min-width: 0.18rem;
     padding: 0 0.04rem;
     margin: 0.3rem 0;
