@@ -36,7 +36,7 @@
 }
 
 .list-title{
-    font-size: 13px;
+    font-size: 14px;
     line-height: 0.86rem;
     color: #333;
     font-weight: 500;
@@ -44,11 +44,11 @@
 }
 
 [data-dpr="3"] .list-title{
-    font-size: 15px;
+    font-size: 16px;
 }
 .list-item{
     display: block;
-    font-size: 13px;
+    font-size: 14px;
     line-height: 0.86rem;
     color: #333;
     font-weight: 500;
@@ -56,6 +56,9 @@
     border-bottom: 1px solid #e5e5e5;
     background: #fff url(../imgs/ico-select@2x.png) no-repeat 7.05rem center;
     background-size: 0.13rem 0.22rem;
+}
+[data-dpr="3"] .list-item{
+    font-size: 16px;
 }
 
 .ico-label-apply,
@@ -68,7 +71,7 @@
 
 .mark-point{
     display: block;
-    font-size: 0.18rem;
+    font-size: 0.2rem;
     line-height: 0.27rem;
     max-height: 0.26rem;
     min-width: 0.18rem;
