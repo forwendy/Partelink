@@ -72,8 +72,7 @@
 .mark-point{
     display: block;
     font-size: 0.26rem;
-    line-height: 0.3rem;
-    max-height: 0.29rem;
+    line-height: 0.29rem;
     min-width: 0.18rem;
     padding: 0 0.06rem;
     margin: 0.28rem 0;

@@ -231,7 +231,7 @@
 			methods: {
 				submit: function functionName() {
 
-					if(this.address == ''){
+					if(this.address == '' && this.otherServiceCache == 1){
 						weui.toast('请填写详细地址', {duration: 3000,className: 'my-toast'});
 					}else {
 						this.otherServiceModel = false;
